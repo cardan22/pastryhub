@@ -17,6 +17,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
     </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
@@ -49,12 +50,21 @@
         </div>
     </nav>
 
-
     <!-- Main Content-->
-    <h1>Hello!</h1>
-    <p>Short text</p>
+    <main>
+        {% block content %}
+        <h1>Hello!</h1>
+        <p>Short text</p>
+        {% endblock %}
+    </main>
+    
     
     <!-- Footer -->
+    <footer class="footer">
+        <a href="#" class="footer-icons"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="footer-icons"><i class="fab fa-instagram"></i></a>
+        <p class="copyright">&copy; Designed by Caroline Danielsson</p>
+      </footer>
     
 </body>
 </html>

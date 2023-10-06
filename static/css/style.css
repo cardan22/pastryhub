@@ -18,6 +18,10 @@ body {
     font-family: "DM Sans", sans-serif;
 }
 
+main {
+    flex: 1 0 auto;
+}
+
 /* Navigation */
 
 .navbar {
@@ -62,17 +66,30 @@ body {
 
 /* Footer */
 
-footer {
+.footer {
     flex-shrink: 0;
     background-color: #DCFFF8;
-    display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     color: #191F39;
+    text-align: center;
+    padding: 20px 0;
 }
 
-.social-icon {
+
+.footer-icons {
     height: 2rem;
     margin: 1rem;
-}  
+    font-size: 2rem;
+    color: #191F39;
+}
+
+.footer-icons:hover {
+    color: #FF6B8A;
+}
+
+.copyright {
+    font-size: 14px;
+    margin-top: 10px;
+}
