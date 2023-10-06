@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,13 +14,41 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
     </script>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
 
     <!-- Navigation -->
+    
+    <nav class="navbar sticky-top navbar-expand-lg">
+        <div class="container">
+          <!-- Logo to the left -->
+          <a class="navbar-brand" href="#">
+            <img src="your-logo.png" alt="Logo" width="50">
+          </a>
+          
+          <!-- Toggle button for mobile -->
+          <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          
+          <!-- Navbar links -->
+          <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a class="nav-link ml-auto" href="#">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="btn btn-primary ml-auto" href="#">Register</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+
 
     <!-- Main Content-->
     <h1>Hello!</h1>
