@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
-    'recipes',
+    'django_summernote',
+    'recipes'
 ]
 
 MIDDLEWARE = [
