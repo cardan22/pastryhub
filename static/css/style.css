@@ -55,13 +55,19 @@ main {
 }
 
 .btn-primary:hover {
-    background-color: transparent;
-    border: 1px solid #FF6B8A;
+    background-color: #191F39;
+    color: #fff;
+    border-color: #FF6B8A;
 }
 
 .navbar-nav .nav-item .nav-link:hover {
     color: #FF6B8A;
   }
+
+.material-symbols-outlined {
+    font-size: inherit;
+    vertical-align: middle;
+}  
 
 /* Hero section with background image */
 
@@ -85,12 +91,17 @@ main {
 
 /* Recipes */
 
+.row {
+    --bs-gutter-x: 0;
+}
+
 .recipe-card {
     border-radius: 10px;
-    margin-bottom: 20px;
-    padding: 2rem;
+    margin: 2rem;
     display: flex;
     flex-direction: column;
+    height: 100%;
+    
 }
 
 .recipe-card img {
@@ -114,6 +125,19 @@ main {
 
 .yellow-card p {
     text-align: center;
+}
+
+.page-link {
+    background-color: #FF6B8A;
+    color: #fff;
+    border-radius: .3rem;
+    margin: 1rem;
+}
+
+.page-link:hover {
+    background-color: #191F39;
+    color: #fff;
+    border-radius: .3rem
 }
 
 /* Footer */
@@ -145,3 +169,22 @@ main {
     margin-top: 10px;
 }
 
+
+/* // Small devices (landscape phones, 576px and down) */
+@media screen and (max-width: 350px) {
+    .hero {
+        padding: 2rem;
+    }
+
+    .recipe-card {
+        margin: 0.8rem;
+    }
+}    
+
+/* // Medium devices (tablets, 992 and down) */
+@media screen and (max-width: 992px) {
+    .recipe-card {
+        margin: 1rem;
+    }
+
+}    
