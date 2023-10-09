@@ -1,110 +1,79 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# The Pastry Hub
+Link to the website: [The Pastry Hub]
 
-Welcome Caroline Danielsson,
+## About
+The Pastry Hub is a website where you can share your favorite pastry recipes. Each recipe tells you how to make delicious pastries. You can create an account to add, change, or remove your recipes anytime. It's a friendly place for people who enjoy baking sweet treats to connect and share their best recipes with each other.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+### Project goals
+The goal of the project was to build a user-friendly platform where you can easily upload and share your favorite recipes. It also lets you make your own special recipe collection, so you can easily gather and organize your favorite recipes for sharing and easy access. You can create your account, and that allows you to add, change, or remove your recipes whenever you want.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+## UX
 
-## Gitpod Reminders
+### User Demographic
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+### User stories
 
-`python3 -m http.server`
+### Strategy
 
-A blue button should appear to click: _Make Public_,
+#### Target Audience
+"The Pastry Hub" is meant for people who love baking. It's a place where they can easily write down and share their best pastry recipes. Whether you're a beginner or a pro, it's for anyone who enjoys baking.
 
-Another blue button should appear to click: _Open Browser_.
+#### User Requirements and Expectations
+* Easy-to-use website with simple navigation.
+* Access to all site functions without any hassle.
+* Links and features work smoothly.
+* Instant feedback when using the website's features.
+* A nice-looking design that works well on different devices.
+* Accessibility.
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+### Scope
 
-A blue button should appear to click: _Make Public_,
+### Structure
 
-Another blue button should appear to click: _Open Browser_.
+### Skeleton
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+#### Wireframes
+I used Figma to design wireframes, which helped me to create a visual representation of The Pastry Hub.
 
-To log into the Heroku toolbelt CLI:
+### Surface
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+#### Colours
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
 
-------
+#### Typography
+I used DM Sans font To make The Pastry Hub visually appealing and easy to read. My goal was to create a pleasant and easy-to-read text style that goes well with the overall design.
 
-## Release History
+#### Logo
+I created a simple logo for The Pastry Hub to strengthen its visual identity. The logo is minimalistic and easy to understand, making it easier for users to recognize and associate with The Pastry Hub.
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+# Features
 
-**September 20 2023:** Update Python version to 3.9.17.
+## Existing Features
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+### Header and logo
+* The section displays a logo along with the header text.
+* Helps the user to quickly recognize and connect the website with its specific content and purpose.
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+### Footer section
+* The footer shows a copyright text.
+* Gives the user information about who owns the website and its content.
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+# Technologies Used
+* [HTML](https://en.wikipedia.org/wiki/HTML)
+* [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
+* [JavaScript](https://en.wikipedia.org/wiki/Javascript)
+* [Python](https://en.wikipedia.org/wiki/Python_%28programming_language%29)
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+# Testing
+The testing documentation can be found at [TESTING.md](TESTING.md)
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+# Development and Deployment
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+# Credits
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+## Content
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+## Media
+* The top mockup in the README was generated using [ami.responsivedesign.is](http://ami.responsivedesign.is/).
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
+[Back to top](#pastryhub)
