@@ -8,7 +8,6 @@
     <meta name="description" content="The Pastry Hub, a pastry sharing app">
     <meta name="keywords" content="Pastry Hub, share recipe, pastry recipe, baking, ingredients">
     <meta name="author" content="Caroline Danielsson">
-    <title>The Pastry Hub - Share your sweet secrets!</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,700&display=swap" rel="stylesheet">
@@ -19,6 +18,10 @@
     </script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>
+      {% block title %}
+      {% endblock %}
+    </title>
 </head>
 <body>
 
@@ -53,11 +56,9 @@
     <!-- Main Content-->
     <main>
         {% block content %}
-        <h1>Hello!</h1>
-        <p>Short text</p>
+        <!-- Content Goes here -->
         {% endblock %}
     </main>
-    
     
     <!-- Footer -->
     <footer class="footer">
