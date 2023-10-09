@@ -83,6 +83,39 @@ main {
     margin-top: 20px;
 }
 
+/* Recipes */
+
+.recipe-card {
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.recipe-card img {
+    border-radius: 10px 10px 0 0;
+    height: 35vh;
+    width: 100%;
+    object-fit: cover;
+}
+
+.yellow-card {
+    padding: 10px;
+    background-color: #FFFBE1;
+    border-radius: 0 0 10px 10px;
+}
+
+.yellow-card h4 {
+    text-align: center;
+    font-weight: bold;
+    padding-top: 1rem;
+}
+
+.yellow-card p {
+    text-align: center;
+}
+
 /* Footer */
 
 .footer {
