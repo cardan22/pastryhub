@@ -50,19 +50,38 @@ main {
 }
 
 .btn-primary {
-    background-color: transparent;
-    border: 1px solid #FF6B8A;
-    text-transform: uppercase;
+    background-color: #FF6B8A;
+    border-color: #FF6B8A;
 }
 
 .btn-primary:hover {
-    background-color: #FF6B8A;
-    border-color: #FF6B8A;
+    background-color: transparent;
+    border: 1px solid #FF6B8A;
 }
 
 .navbar-nav .nav-item .nav-link:hover {
     color: #FF6B8A;
   }
+
+/* Hero section with background image */
+
+.hero {
+    background-image: url(/static/media/jordane-mathieu-f4259usPV14-unsplash.jpg);
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    color: white;
+    padding: 5rem;
+}
+
+.hero-text {
+    font-weight: 700;
+    letter-spacing: 0.1rem;
+}
+
+.hero-btn {
+    margin-top: 20px;
+}
 
 /* Footer */
 
@@ -76,7 +95,6 @@ main {
     text-align: center;
     padding: 20px 0;
 }
-
 
 .footer-icons {
     height: 2rem;
@@ -93,3 +111,4 @@ main {
     font-size: 14px;
     margin-top: 10px;
 }
+
