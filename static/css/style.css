@@ -22,6 +22,12 @@ main {
     flex: 1 0 auto;
 }
 
+/* Fonts */
+
+h1, h2, h3, h4 {
+    font-weight: 700;
+}
+
 /* Navigation */
 
 .navbar {
@@ -57,7 +63,7 @@ main {
 .btn-primary:hover {
     background-color: #191F39;
     color: #fff;
-    border-color: #FF6B8A;
+    border-color: #191F39;
 }
 
 .navbar-nav .nav-item .nav-link:hover {
@@ -81,7 +87,6 @@ main {
 }
 
 .hero-text {
-    font-weight: 700;
     letter-spacing: 0.1rem;
 }
 
@@ -101,7 +106,6 @@ main {
     display: flex;
     flex-direction: column;
     height: 100%;
-    
 }
 
 .recipe-card img {
@@ -140,6 +144,29 @@ main {
     border-radius: .3rem
 }
 
+/* Login, Logout, Sign Up form */
+
+.yellow-background {
+    background-color: #FFFBE1;
+  }
+
+.form-container {
+    max-width: 400px;
+    padding: 20px;
+  }
+
+.btn-secondary {
+    background-color: transparent;
+    color: #191F39;
+    border-color: #191F39;
+    margin-top: 0.5rem;
+}
+
+.btn-secondary:hover {
+    color: #FF6B8A;
+    background-color: #191F39;
+} 
+
 /* Footer */
 
 .footer {
@@ -169,6 +196,16 @@ main {
     margin-top: 10px;
 }
 
+/* // Medium devices (tablets, 992 and down) */
+@media screen and (max-width: 992px) {
+    .recipe-card {
+        margin: 1rem;
+    }
+
+    .recipe-card img {
+        height: 20vh;
+    }
+}   
 
 /* // Small devices (landscape phones, 576px and down) */
 @media screen and (max-width: 350px) {
@@ -179,12 +216,4 @@ main {
     .recipe-card {
         margin: 0.8rem;
     }
-}    
-
-/* // Medium devices (tablets, 992 and down) */
-@media screen and (max-width: 992px) {
-    .recipe-card {
-        margin: 1rem;
-    }
-
 }    
