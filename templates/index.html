@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}The Pastry Hub - Share your sweet secrets!{% endblock %}
+{% block title %}Share your sweet secrets!{% endblock %}
 {% block content %}
 
 <!-- Hero image and call to action -->
@@ -16,7 +16,7 @@
 <div class="container-fluid">
     <div class="row">
 
-<!-- Recipe cards loop -->
+        <!-- Recipe cards loop -->
         {% for recipe in recipe_list %}
         <div class="col-sm-12 col-md-6 col-lg-4">
             <a href="{#}" class="recipe-link" aria-label="{{ recipe.title }}"></a>
