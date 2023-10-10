@@ -196,6 +196,12 @@ h1, h2, h3, h4 {
     margin-top: 10px;
 }
 
+/* Add recipe */
+
+.form-recipe {
+    width: 800px;
+}
+
 /* // Medium devices (tablets, 992 and down) */
 @media screen and (max-width: 992px) {
     .recipe-card {

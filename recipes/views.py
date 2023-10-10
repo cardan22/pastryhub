@@ -1,6 +1,9 @@
 from django.shortcuts import render
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views import generic, View
+from django.views.generic.edit import CreateView
 from .models import Recipe
+from .forms import RecipeForm
 
 
 class RecipeList(generic.ListView):
@@ -9,3 +12,16 @@ class RecipeList(generic.ListView):
     queryset = Recipe.objects.filter(status=1).order_by("-posted_date")
     template_name = "index.html"
     paginate_by = 6
+
+
+class AddRecipe(LoginRequiredMixin, CreateView):
+    """Add recipe view"""
+
+    template_name = "add_recipe.html"
+    model = Recipe
+    form_class = RecipeForm
+    success_url = "/recipes/"
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(AddRecipe, self).form_valid(form)
