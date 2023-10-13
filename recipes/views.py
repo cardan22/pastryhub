@@ -33,3 +33,17 @@ class AddRecipe(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super(AddRecipe, self).form_valid(form)
+
+
+class MyRecipesList(LoginRequiredMixin, ListView):
+    """ My Recipes view """
+
+    model = Recipe
+    queryset = Recipe.objects.order_by("-posted_date")
+    template_name = "my_recipes.html"
+    paginate_by = 8
+
+    def get_queryset(self):
+        queryset = Recipe.objects.filter(
+            author__id=self.request.user.id).order_by("-posted_date")
+        return queryset

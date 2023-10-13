@@ -1,4 +1,5 @@
 from django import forms
+from djrichtextfield.widgets import RichTextWidget
 from .models import Recipe
 
 
@@ -17,6 +18,9 @@ class RecipeForm(forms.ModelForm):
             "image_alt",
             "status",
         ]
+
+        ingredients = forms.CharField(widget=RichTextWidget())
+        instructions = forms.CharField(widget=RichTextWidget())
 
         labels = {
             "title": "Recipe Title",

@@ -48,6 +48,7 @@ h1, h2, h3, h4 {
 
 .navbar-nav {
     margin-left: auto;
+    padding: 1rem;
 }
 
 .navbar-nav .nav-link {
@@ -58,6 +59,10 @@ h1, h2, h3, h4 {
 
 .navbar-expand-lg .navbar-nav .nav-link {
     padding-right: 2rem;
+}
+
+.nav-item {
+    padding: 0.5rem;
 }
 
 .btn-primary {
@@ -78,7 +83,7 @@ h1, h2, h3, h4 {
 .material-symbols-outlined {
     font-size: inherit;
     vertical-align: middle;
-}  
+}
 
 /* Hero section with background image */
 
@@ -125,6 +130,7 @@ h1, h2, h3, h4 {
     padding: 10px;
     background-color: #FFFBE1;
     border-radius: 0 0 10px 10px;
+    min-height: 180px;
 }
 
 .yellow-card h4 {
@@ -158,6 +164,20 @@ h1, h2, h3, h4 {
     width: 100%;
     height: 100%;
     object-fit: cover;
+ }
+
+ /* My recipe view */
+
+ .my-recipes-header {
+    height: 40vh
+ }
+
+ .badge-primary {
+    z-index: 1;
+    background-color: #FF6B8A;
+    padding: 2rem;
+    position: absolute;
+    margin: 1rem;
  }
 
 /* Login, Logout, Sign Up form */
@@ -224,6 +244,10 @@ h1, h2, h3, h4 {
     }
 
     .recipe-card img {
+        height: 20vh;
+    }
+
+    .my-recipes-header {
         height: 20vh;
     }
 }   
