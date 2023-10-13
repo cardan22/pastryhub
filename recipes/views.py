@@ -1,5 +1,5 @@
-from django.shortcuts import render
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.shortcuts import render, redirect
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views import generic, View
 from django.views.generic.edit import CreateView
 from .models import Recipe
@@ -20,8 +20,8 @@ class AddRecipe(LoginRequiredMixin, CreateView):
     template_name = "add_recipe.html"
     model = Recipe
     form_class = RecipeForm
-    success_url = "/recipes/"
+    success_url = "/my_recipes/"
 
     def form_valid(self, form):
-        form.instance.user = self.request.user
+        form.instance.author = self.request.user
         return super(AddRecipe, self).form_valid(form)

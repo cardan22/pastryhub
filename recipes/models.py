@@ -23,7 +23,8 @@ A recipe model that enables users to create, view, update, and delete recipes.
 
 class Recipe(models.Model):
     title = models.CharField(max_length=200, unique=True, blank=False)
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    author = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name="add_recipe")
     baking_time = models.PositiveIntegerField(blank=False)
     ingredients = models.TextField(max_length=10000, null=False, blank=False)
     instructions = models.TextField(max_length=10000, null=False, blank=False)
