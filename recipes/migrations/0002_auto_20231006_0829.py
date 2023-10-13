@@ -5,26 +5,25 @@ import django.db.models.manager
 
 
 class Migration(migrations.Migration):
-
     dependencies = [
-        ('recipes', '0001_initial'),
+        ("recipes", "0001_initial"),
     ]
 
     operations = [
         migrations.AlterModelManagers(
-            name='recipe',
+            name="recipe",
             managers=[
-                ('liked_recipes', django.db.models.manager.Manager()),
+                ("liked_recipes", django.db.models.manager.Manager()),
             ],
         ),
         migrations.AlterField(
-            model_name='recipe',
-            name='ingredients',
+            model_name="recipe",
+            name="ingredients",
             field=models.TextField(max_length=10000),
         ),
         migrations.AlterField(
-            model_name='recipe',
-            name='instructions',
+            model_name="recipe",
+            name="instructions",
             field=models.TextField(max_length=10000),
         ),
     ]

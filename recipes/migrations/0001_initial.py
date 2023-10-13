@@ -8,7 +8,6 @@ import djrichtextfield.models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
@@ -17,22 +16,57 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name='Recipe',
+            name="Recipe",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=200, unique=True)),
-                ('baking_time', models.PositiveIntegerField()),
-                ('ingredients', djrichtextfield.models.RichTextField(max_length=10000)),
-                ('instructions', djrichtextfield.models.RichTextField(max_length=10000)),
-                ('image', cloudinary.models.CloudinaryField(default='placeholder', max_length=255, verbose_name='image')),
-                ('image_alt', models.CharField(max_length=100)),
-                ('status', models.IntegerField(choices=[(0, 'Draft'), (1, 'Published')], default=0)),
-                ('posted_date', models.DateField(auto_now_add=True)),
-                ('author', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
-                ('likes', models.ManyToManyField(blank=True, default=None, related_name='like', to=settings.AUTH_USER_MODEL)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("title", models.CharField(max_length=200, unique=True)),
+                ("baking_time", models.PositiveIntegerField()),
+                ("ingredients", djrichtextfield.models.RichTextField(max_length=10000)),
+                (
+                    "instructions",
+                    djrichtextfield.models.RichTextField(max_length=10000),
+                ),
+                (
+                    "image",
+                    cloudinary.models.CloudinaryField(
+                        default="placeholder", max_length=255, verbose_name="image"
+                    ),
+                ),
+                ("image_alt", models.CharField(max_length=100)),
+                (
+                    "status",
+                    models.IntegerField(
+                        choices=[(0, "Draft"), (1, "Published")], default=0
+                    ),
+                ),
+                ("posted_date", models.DateField(auto_now_add=True)),
+                (
+                    "author",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
+                (
+                    "likes",
+                    models.ManyToManyField(
+                        blank=True,
+                        default=None,
+                        related_name="like",
+                        to=settings.AUTH_USER_MODEL,
+                    ),
+                ),
             ],
             options={
-                'ordering': ['-posted_date'],
+                "ordering": ["-posted_date"],
             },
         ),
     ]
