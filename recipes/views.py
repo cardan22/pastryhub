@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views import generic, View
 from django.views.generic.edit import CreateView
@@ -7,11 +7,20 @@ from .forms import RecipeForm
 
 
 class RecipeList(generic.ListView):
-    """ View all recipes"""
+    """View all recipes"""
+
     model = Recipe
     queryset = Recipe.objects.filter(status=1).order_by("-posted_date")
     template_name = "index.html"
     paginate_by = 6
+
+
+class RecipeDetail(View):
+    """View to display details of a recipe."""
+
+    model = Recipe
+    template_name = "recipe_detail.html"
+    context_object_name = "recipe"
 
 
 class AddRecipe(LoginRequiredMixin, CreateView):
