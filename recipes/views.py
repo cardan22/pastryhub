@@ -1,12 +1,11 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.views import generic, View
-from django.views.generic.edit import CreateView
+from django.views.generic import CreateView, ListView, DetailView
 from .models import Recipe
 from .forms import RecipeForm
 
 
-class RecipeList(generic.ListView):
+class RecipeList(ListView):
     """View all recipes"""
 
     model = Recipe
@@ -15,7 +14,7 @@ class RecipeList(generic.ListView):
     paginate_by = 6
 
 
-class RecipeDetail(View):
+class RecipeDetail(DetailView):
     """View to display details of a recipe."""
 
     model = Recipe

@@ -5,5 +5,5 @@ from django.contrib import admin
 urlpatterns = [
     path("", views.RecipeList.as_view(), name="home"),
     path("add_recipe/", views.AddRecipe.as_view(), name="add_recipe"),
-    path("<slug:pk>/", views.RecipeDetail.as_view(), name="recipe_detail"),
+    path('<slug:pk>/', views.RecipeDetail.as_view(), name='recipe_detail'),
 ]

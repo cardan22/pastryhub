@@ -22,6 +22,11 @@ main {
     flex: 1 0 auto;
 }
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
 /* Fonts */
 
 h1, h2, h3, h4 {
@@ -61,9 +66,9 @@ h1, h2, h3, h4 {
 }
 
 .btn-primary:hover {
-    background-color: #191F39;
+    background-color: #fd8ea6;
     color: #fff;
-    border-color: #191F39;
+    border-color: #fd8ea6;
 }
 
 .navbar-nav .nav-item .nav-link:hover {
@@ -78,7 +83,7 @@ h1, h2, h3, h4 {
 /* Hero section with background image */
 
 .hero {
-    background-image: url(/static/media/jordane-mathieu-f4259usPV14-unsplash.jpg);
+    background-image: url(/static/media/images/jordane-mathieu-f4259usPV14-unsplash.jpg);
     background-size: cover;
     background-position: center;
     text-align: center;
@@ -88,13 +93,14 @@ h1, h2, h3, h4 {
 
 .hero-text {
     letter-spacing: 0.1rem;
+    font-weight: 700;
 }
 
 .hero-btn {
     margin-top: 20px;
 }
 
-/* Recipes */
+/* Recipes card */
 
 .row {
     --bs-gutter-x: 0;
@@ -125,6 +131,7 @@ h1, h2, h3, h4 {
     text-align: center;
     font-weight: bold;
     padding-top: 1rem;
+    margin: 1rem;
 }
 
 .yellow-card p {
@@ -144,26 +151,34 @@ h1, h2, h3, h4 {
     border-radius: .3rem
 }
 
+/* Recipe detail view */
+
+.recipe-img {
+    max-height: 500px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+ }
+
 /* Login, Logout, Sign Up form */
 
 .yellow-background {
     background-color: #FFFBE1;
-  }
+}
 
 .form-container {
     max-width: 400px;
     padding: 20px;
-  }
+}
 
 .btn-secondary {
     background-color: transparent;
     color: #191F39;
     border-color: #191F39;
-    margin-top: 0.5rem;
 }
 
 .btn-secondary:hover {
-    color: #FF6B8A;
+    color: #ffffff;
     background-color: #191F39;
 } 
 
