@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import CreateView, ListView, DetailView
-from .models import Recipe
+from .models import Recipe, FavoriteRecipe
 from .forms import RecipeForm
 
 

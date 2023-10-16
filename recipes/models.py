@@ -3,26 +3,16 @@ from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 from djrichtextfield.models import RichTextField
 
-
-# Code taken from "theRecipeCollective"
-# bySandraBergstrom with some modifications.
-
-# class LikedManager(models.Manager):
-#     def get_queryset(self, user):
-#         return super().get_queryset().filter(likes=user)
-
-# Status for user to set if recipe should be draft or pubilished.
-
-
 STATUS = ((0, "Draft"), (1, "Published"))
 
 
-"""
-A recipe model that enables users to create, view, update, and delete recipes.
-"""
-
-
 class Recipe(models.Model):
+
+    """
+    A recipe model that enables users to create,
+    view, update, and delete recipes.
+    """
+
     title = models.CharField(max_length=200, unique=True, blank=False)
     author = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name="add_recipe"
@@ -34,11 +24,21 @@ class Recipe(models.Model):
     image_alt = models.CharField(max_length=100, null=False, blank=False)
     status = models.IntegerField(choices=STATUS, default=0)
     posted_date = models.DateField(auto_now_add=True)
-    likes = models.ManyToManyField(User, related_name="like", default=None, blank=True)
-    # liked_recipes = LikedManager()
 
     class Meta:
         ordering = ["-posted_date"]
 
     def __str__(self):
         return self.title
+
+
+class FavoriteRecipe(models.Model):
+    """
+    Model representing a user's favorite recipe.
+    """
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
+
+    class Meta:
+        unique_together = ('user', 'recipe')
