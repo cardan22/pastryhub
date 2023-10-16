@@ -62,6 +62,8 @@ I used Figma to design wireframes, which helped me to create a visual representa
 
 ### Surface
 
+#### Data Base Design
+
 #### Colours
 
 #### Typography
@@ -71,37 +73,78 @@ I used DM Sans font To make The Pastry Hub visually appealing and easy to read. 
 I created a simple logo for The Pastry Hub to strengthen its visual identity. The logo is minimalistic and easy to understand, making it easier for users to recognize and associate with The Pastry Hub.
 
 ## Agile Development
+The development of this project was managed through GitHub issues, milestones, and projects. 
+[Link to The Pastry Hub User Stories](https://github.com/users/cardan22/projects/4)
 
 ### Sprints
 
-# Features
+## Features
 
-## Existing Features
+### Existing Features
 
-### Header and logo
+#### Header and logo
 * The section displays a logo along with the header text.
 * Helps the user to quickly recognize and connect the website with its specific content and purpose.
+* Different links are shown to users depending on whether they are logged in or not. 
+* On smaller screens, the navigation links become a collapsible burger menu for a user-friendly experience.
 
-### Footer section
-* The footer shows a copyright text.
-* Gives the user information about who owns the website and its content.
+#### Footer section
+* The footer includes links to Instagram and Facebook, along with a copyright feature.
 
-# Technologies Used
+#### Account Features
+
+##### Create an Account
+* Allows User Signup
+* Fields: Username, Email, Password, Password Confirmation
+
+##### Login to an Account
+* Allows User Access to Their Information
+
+##### Log Out of an Account
+* Allows User to Log Out
+
+### Main Views
+
+#### Home Page
+
+#### My Recipes
+•	Allows registered users to view their recipes, including drafts.
+
+#### Recipe Detail View
+
+### CRUD Functionality 
+* All CRUD functionality is only available to registered users once they are logged in.
+
+#### Create a Recipe
+* User can create a Recipe
+* Form Fields: Title, Baking time, Ingredients, Instructions, Image, Status
+
+#### Update a Recipe
+* User can update a Recipe
+* Form Prefilled with Existing Details
+
+#### Delete a Recipe
+* User can delete a Recipe
+* Confirmation Prompt for Deletion
+
+## Technologies Used
 * [HTML](https://en.wikipedia.org/wiki/HTML)
 * [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
 * [JavaScript](https://en.wikipedia.org/wiki/Javascript)
 * [Python](https://en.wikipedia.org/wiki/Python_%28programming_language%29)
 
-# Testing
+## Python Modules/Packages used:
+
+## Testing
 The testing documentation can be found at [TESTING.md](TESTING.md)
 
-# Development and Deployment
+## Development and Deployment
 
-# Credits
+## Credits
 
-## Content
+### Content
 
-## Media
+### Media
 * The top mockup in the README was generated using [ami.responsivedesign.is](http://ami.responsivedesign.is/).
 
-[Back to top](#pastryhub)
+[Back to top](#ThePastryHub)
