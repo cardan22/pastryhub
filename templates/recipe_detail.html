@@ -29,13 +29,13 @@
         </div>
     </div>
         {% if request.user == recipe.author %} 
-        <div class="text-center">
-            <a href="{% url 'update' recipe.pk %}" class="btn btn-secondary w-25 mb-2" style="width: 100%">Edit</a>
-            <a href="{#}" class="btn btn-primary w-25 mb-2" style="width: 100%">Delete</a>
+        <div class="d-grid gap-2 d-md-block text-center">
+            <a href="{% url 'update' recipe.pk %}" class="btn btn-secondary">Edit</a>
+            <a href="{% url 'delete' recipe.pk %}" class="btn btn-primary">Delete</a>
         </div>
         {% endif %}
-    <div class="text-center">
-        <a href="{% url 'home' %}" class="btn btn-primary w-25 p-2 m-4" style="width: 100%">Show more recipes</a>
+    <div class="d-grid gap-2 d-md-block text-center">
+        <a href="{% url 'home' %}" class="btn btn-primary w-25 p-2 m-4">Show more recipes</a>
     </div>
 </div>
 

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Delete Recipes{% endblock %}
+
+{% block body_class %}yellow-background{% endblock %}
+
+{% block content %}
+
+{% if user.is_authenticated %}
+{% if user.id == recipe.author.id %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <h1 class="hero-text pt-4">Delete your recipe</h1>
+            <br>
+            <p>Are you sure you want to delete the recipe - "{{ recipe.title }}"?</p>
+            <form method="POST" class="form text-muted" action="{% url 'delete' recipe.pk %}"
+                enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="d-grid gap-2 d-md-block">
+                    <button type="submit" class="btn btn-primary">Delete</button>
+                    <a href="{% url 'home' %}" class="btn btn-secondary">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endif %}
+
+{% endblock %}

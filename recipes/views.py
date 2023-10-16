@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.views.generic import CreateView, UpdateView, ListView, DetailView
+from django.views.generic import CreateView, UpdateView, DeleteView, ListView, DetailView
+from django.urls import reverse_lazy
 from .models import Recipe, FavoriteRecipe
 from .forms import RecipeForm
 
@@ -9,7 +10,7 @@ class RecipeList(ListView):
     """
     View to display a list of all published recipes.
 
-    This view retrieves all recipes with 'status' set to 1
+    This view retrieves all recipes with status set to 1
     (published) and orders them by their posting date.
     """
 
@@ -41,7 +42,7 @@ class AddRecipe(LoginRequiredMixin, CreateView):
     template_name = "add_recipe.html"
     model = Recipe
     form_class = RecipeForm
-    success_url = "/my_recipes/"
+    success_url = reverse_lazy("my_recipes")
 
     def form_valid(self, form):
         form.instance.author = self.request.user
@@ -58,11 +59,24 @@ class UpdateRecipe(LoginRequiredMixin, UpdateView):
     model = Recipe
     form_class = RecipeForm
     template_name = "update_recipe.html"
-    success_url = "/my_recipes/"
+    success_url = reverse_lazy("my_recipes")
 
     def form_valid(self, form):
         form.instance.author = self.request.user
         return super(UpdateView, self).form_valid(form)
+
+
+class DeleteRecipe(LoginRequiredMixin, DeleteView):
+    """
+    This view allows an authenticated user to delete a recipe.
+    """
+
+    model = Recipe
+    template_name = "delete_recipe.html"
+    success_url = reverse_lazy("my_recipes")
+
+    def delete(self, request, *args, **kwargs):
+        return super(DeleteView, self).delete(request, *args, **kwargs)
 
 
 class MyRecipesList(LoginRequiredMixin, ListView):
