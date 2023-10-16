@@ -2,7 +2,7 @@
 {% block title %}{{ recipe.title|slice:":15"}}...{% endblock %}
 {% block content %}
 
-
+<!-- Display recipe details and provide edit/delete options for the author. -->
 <div class="container-fluid p-0">
     <div class="row">
         <div class="col">
@@ -30,7 +30,7 @@
     </div>
         {% if request.user == recipe.author %} 
         <div class="text-center">
-            <a href="{#}" class="btn btn-secondary w-25 mb-2" style="width: 100%">Edit</a>
+            <a href="{% url 'update' recipe.pk %}" class="btn btn-secondary w-25 mb-2" style="width: 100%">Edit</a>
             <a href="{#}" class="btn btn-primary w-25 mb-2" style="width: 100%">Delete</a>
         </div>
         {% endif %}
@@ -38,6 +38,5 @@
         <a href="{% url 'home' %}" class="btn btn-primary w-25 p-2 m-4" style="width: 100%">Show more recipes</a>
     </div>
 </div>
-
 
 {% endblock %}

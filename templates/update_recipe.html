@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Update Recipe{% endblock %}
+{% block body_class %}yellow-background{% endblock %}
+{% block content %}
+
+<!-- Update recipe form for authorized users -->
+{% if user.is_authenticated %}
+{% if user.id == recipe.author.id %}
+
+<div class="container form-recipe">
+    <form class="p-2 form" method="POST" enctype="multipart/form-data" action="{% url 'update' recipe.pk %}">
+        <h1 class="p-4 text-center">Update Recipe</h1>
+        {% csrf_token %}
+        {{ form.media }} 
+        {{ form | crispy | safe}}
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary w-25 p-2 m-4">Update</button>
+            <button type="submit" class="btn btn-secondary w-25 p-2 m-4">Cancel</button>
+        </div>
+    </form>
+</div>
+{% endif %}
+{% endif %}
+
+{% endblock %}
