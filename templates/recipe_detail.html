@@ -11,7 +11,7 @@
     </div>
 </div>
 
-<div class="container mt-4">
+<div class="container mt-4 recipe-container">
     <div class="row">
         <div class="col-md-12">
             <h1 class="text-center pt-4">{{ recipe.title }}</h1>
@@ -28,14 +28,16 @@
             <p>{{ recipe.instructions | safe }}</p>
         </div>
     </div>
-        {% if request.user == recipe.author %} 
-        <div class="d-grid gap-2 d-md-block text-center">
-            <a href="{% url 'update' recipe.pk %}" class="btn btn-secondary">Edit</a>
-            <a href="{% url 'delete' recipe.pk %}" class="btn btn-primary">Delete</a>
-        </div>
-        {% endif %}
+    <div class="row">
+    {% if request.user == recipe.author %} 
     <div class="d-grid gap-2 d-md-block text-center">
-        <a href="{% url 'home' %}" class="btn btn-primary w-25 p-2 m-4">Show more recipes</a>
+        <a href="{% url 'update' recipe.pk %}" class="btn btn-primary">Edit</a>
+        <a href="{% url 'delete' recipe.pk %}" class="btn btn-secondary">Delete</a>
+    {% endif %}
+    </div>
+    <div class="d-grid gap-2 d-md-block text-center">
+        <a href="{% url 'home' %}" class="btn btn-primary p-2 my-4">Show more recipes</a> 
+    </div>
     </div>
 </div>
 

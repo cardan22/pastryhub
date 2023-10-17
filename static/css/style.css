@@ -40,7 +40,6 @@ h1, h2, h3, h4 {
 /* Navigation */
 
 .navbar {
-    padding: 2rem;
     background-color: #191F39;
     color: #fff;
     position: sticky;
@@ -72,6 +71,17 @@ h1, h2, h3, h4 {
     padding: 0.5rem;
 }
 
+.navbar-nav .nav-item .nav-link:hover {
+    color: #FF6B8A;
+  }
+
+.material-symbols-outlined {
+    font-size: inherit;
+    vertical-align: middle;
+}
+
+/*  Buttons */
+
 .btn-primary {
     background-color: #FF6B8A;
     border-color: #FF6B8A;
@@ -83,14 +93,16 @@ h1, h2, h3, h4 {
     border-color: #fd8ea6;
 }
 
-.navbar-nav .nav-item .nav-link:hover {
-    color: #FF6B8A;
-  }
-
-.material-symbols-outlined {
-    font-size: inherit;
-    vertical-align: middle;
+.btn-secondary {
+    background-color: transparent;
+    color: #191F39;
+    border-color: #191F39;
 }
+
+.btn-secondary:hover {
+    color: #ffffff;
+    background-color: #191F39;
+} 
 
 /* Hero section with background image */
 
@@ -104,7 +116,6 @@ h1, h2, h3, h4 {
 }
 
 .hero-text {
-    letter-spacing: 0.1rem;
     font-weight: 700;
 }
 
@@ -121,14 +132,11 @@ h1, h2, h3, h4 {
 .recipe-card {
     border-radius: 10px;
     margin: 2rem;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
 }
 
 .recipe-card img {
     border-radius: 10px 10px 0 0;
-    height: 35vh;
+    height: 250px;
     width: 100%;
     object-fit: cover;
 }
@@ -173,6 +181,10 @@ h1, h2, h3, h4 {
     object-fit: cover;
  }
 
+ .recipe-container {
+    max-width: 80%;
+ }
+
  /* My recipe view */
 
  .my-recipes-header {
@@ -197,17 +209,6 @@ h1, h2, h3, h4 {
     max-width: 400px;
     padding: 20px;
 }
-
-.btn-secondary {
-    background-color: transparent;
-    color: #191F39;
-    border-color: #191F39;
-}
-
-.btn-secondary:hover {
-    color: #ffffff;
-    background-color: #191F39;
-} 
 
 /* Footer */
 
@@ -246,12 +247,24 @@ h1, h2, h3, h4 {
 
 /* // Medium devices (tablets, 992 and down) */
 @media screen and (max-width: 992px) {
+    .navbar {
+        padding: 0.4rem;
+    }
+
+    .logo-img {
+        width: 150px;
+    }
+
     .recipe-card {
         margin: 1rem;
     }
 
-    .recipe-card img {
-        height: 20vh;
+    .recipe-img {
+        max-height: 20vh;
+    }
+
+    .yellow-card {
+        min-height: auto;
     }
 
     .my-recipes-header {
@@ -267,5 +280,13 @@ h1, h2, h3, h4 {
 
     .recipe-card {
         margin: 0.8rem;
+    }
+
+    .recipe-card img {
+        height: 20vh;
+    }
+
+    .yellow-card h4 {
+        margin: 0;
     }
 }    
