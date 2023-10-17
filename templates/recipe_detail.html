@@ -1,44 +1,70 @@
 {% extends 'base.html' %}
-{% block title %}{{ recipe.title|slice:":15"}}...{% endblock %}
-{% block content %}
 
-<!-- Display recipe details and provide edit/delete options for the author. -->
+{% block title %}{{ recipe.title|slice:":15"}}...{% endblock %}
+
+{% block content %}
+<!-- Recipe Detail Template -->
 <div class="container-fluid p-0">
+    
+    <!-- Display Recipe Image -->
     <div class="row">
         <div class="col">
-            <img src="{{ recipe.image.url }}" alt="{{ recipe.image_alt }}" class="img-fluid recipe-img ">
+            <img src="{{ recipe.image.url }}" alt="{{ recipe.image_alt }}" class="img-fluid recipe-img">
         </div>
     </div>
 </div>
 
 <div class="container mt-4 recipe-container">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 text-center">
+            
+            <!-- Favorite Button -->
+            {% if user.is_authenticated %}
+                {% if not favorite %}
+                    <!-- Add to Favorites Button -->
+                    <a class="btn btn-like" href="{% url 'add_favorite_recipe' recipe.id %}">
+                        <i class="fa-regular fa-heart"></i>
+                    </a>
+                {% else %}
+                    <!-- Remove from Favorites Button -->
+                    <a class="btn btn-like" href="{% url 'add_favorite_recipe' recipe.id %}">
+                        <i class="fa-solid fa-heart"></i>
+                    </a>
+                {% endif %}
+            {% endif %}
+            
+            <!-- Recipe Title and Author Information -->
             <h1 class="text-center pt-4">{{ recipe.title }}</h1>
             <p class="text-center text-muted small">By {{ recipe.author }} | {{ recipe.baking_time }} min</p>
         </div>
     </div>
     <div class="row mt-4 py-4">
         <div class="col-md-6">
+            <!-- Ingredients Section -->
             <h2>Ingredients</h2>
             <p>{{ recipe.ingredients | safe }}</p>
         </div>
         <div class="col-md-6">
+            <!-- Instructions Section -->
             <h2>Instructions</h2>
             <p>{{ recipe.instructions | safe }}</p>
         </div>
     </div>
     <div class="row">
-    {% if request.user == recipe.author %} 
-    <div class="d-grid gap-2 d-md-block text-center">
-        <a href="{% url 'update' recipe.pk %}" class="btn btn-primary">Edit</a>
-        <a href="{% url 'delete' recipe.pk %}" class="btn btn-secondary">Delete</a>
-    {% endif %}
+        {% if request.user == recipe.author %}
+        
+        <!-- Edit and Delete Options for the Author -->
+        <div class="d-grid gap-2 d-md-block text-center">
+            <a href="{% url 'update' recipe.pk %}" class="btn btn-primary">Edit</a>
+            <a href="{% url 'delete' recipe.pk %}" class="btn btn-secondary">Delete</a>
+        </div>
+        {% endif %}
     </div>
     <div class="d-grid gap-2 d-md-block text-center">
-        <a href="{% url 'home' %}" class="btn btn-primary p-2 my-4">Show more recipes</a> 
-    </div>
+        
+        <!-- Show More Recipes Button -->
+        <a href="{% url 'home' %}" class="btn btn-primary p-2 my-4">Show more recipes</a>
     </div>
 </div>
-
+<!-- End of Recipe Detail Template -->
 {% endblock %}

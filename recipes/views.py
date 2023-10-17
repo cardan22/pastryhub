@@ -1,7 +1,11 @@
+from django.http import HttpResponseRedirect
+from django.contrib import messages
+from django.urls import reverse_lazy, reverse
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from django.views.generic import CreateView, UpdateView, DeleteView, ListView, DetailView
-from django.urls import reverse_lazy
+from django.views.generic import (
+    CreateView, UpdateView, DeleteView, ListView, DetailView
+    )
 from .models import Recipe, FavoriteRecipe
 from .forms import RecipeForm
 
@@ -30,6 +34,16 @@ class RecipeDetail(DetailView):
     model = Recipe
     template_name = "recipe_detail.html"
     context_object_name = "recipe"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if self.request.user.is_authenticated:
+            recipe = self.object
+            favorite = FavoriteRecipe.objects.filter(
+                user=self.request.user, recipe=recipe).exists(
+                )
+            context['favorite'] = favorite
+        return context
 
 
 class AddRecipe(LoginRequiredMixin, CreateView):
@@ -96,3 +110,29 @@ class MyRecipesList(LoginRequiredMixin, ListView):
         queryset = Recipe.objects.filter(
             author__id=self.request.user.id).order_by("-posted_date")
         return queryset
+
+
+class AddFavoriteRecipe(LoginRequiredMixin, ListView):
+    """
+    View for adding/removing recipes from user's favorites.
+
+    Allows authenticated users to add or remove recipes from their favorites.
+    If already a favorite, it's removed; otherwise, it's added.
+    """
+
+    def get(self, request, id):
+        recipe = get_object_or_404(Recipe, id=id)
+
+        favorite, created = FavoriteRecipe.objects.get_or_create(
+            user=request.user, recipe=recipe
+            )
+
+        if not created:
+            favorite.delete()
+            msg = "This recipe was removed from your favorites"
+            messages.warning(request, msg)
+        else:
+            msg = "This recipe was added to your favorites."
+            messages.success(request, msg)
+
+        return redirect(request.META.get('HTTP_REFERER'))

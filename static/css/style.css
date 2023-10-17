@@ -181,6 +181,15 @@ h1, h2, h3, h4 {
     object-fit: cover;
  }
 
+ .btn-like {
+    color: #FF6B8A;
+    font-size: 2rem;
+ }
+
+ .btn-like:hover {
+    color: #191F39;
+ }
+
  .recipe-container {
     max-width: 80%;
  }
