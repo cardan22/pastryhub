@@ -95,7 +95,7 @@ h1, h2, h3, h4 {
 /* Hero section with background image */
 
 .hero {
-    background-image: url(/static/media/images/jordane-mathieu-f4259usPV14-unsplash.jpg);
+    background-image: url(https://res.cloudinary.com/dl1cowuzi/image/upload/v1697524159/jordane-mathieu-f4259usPV14-unsplash_xn0sca.jpg);
     background-size: cover;
     background-position: center;
     text-align: center;
