@@ -60,6 +60,8 @@ class AddRecipe(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.author = self.request.user
+        msg = "Your Recipe was added successfully"
+        messages.add_message(self.request, messages.SUCCESS, msg)
         return super(AddRecipe, self).form_valid(form)
 
 
@@ -77,6 +79,8 @@ class UpdateRecipe(LoginRequiredMixin, UpdateView):
 
     def form_valid(self, form):
         form.instance.author = self.request.user
+        msg = "Your Recipe was updated successfully"
+        messages.add_message(self.request, messages.SUCCESS, msg)
         return super(UpdateView, self).form_valid(form)
 
 
@@ -90,6 +94,8 @@ class DeleteRecipe(LoginRequiredMixin, DeleteView):
     success_url = reverse_lazy("my_recipes")
 
     def delete(self, request, *args, **kwargs):
+        msg = "Your Recipe was deleted successfully"
+        messages.add_message(self.request, messages.SUCCESS, msg)
         return super(DeleteView, self).delete(request, *args, **kwargs)
 
 
