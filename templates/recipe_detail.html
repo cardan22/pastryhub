@@ -1,8 +1,7 @@
 {% extends 'base.html' %}
-
 {% block title %}{{ recipe.title|slice:":15"}}...{% endblock %}
-
 {% block content %}
+
 <!-- Recipe Detail Template -->
 <div class="container-fluid p-0">
     
@@ -35,7 +34,9 @@
             
             <!-- Recipe Title and Author Information -->
             <h1 class="text-center pt-4">{{ recipe.title }}</h1>
-            <p class="text-center text-muted small">By {{ recipe.author }} | {{ recipe.baking_time }} min</p>
+            <p class="text-center text-muted small">By {{ recipe.author }} &nbsp; | &nbsp; 
+                <i class="fa-regular fa-clock"></i>  {{ recipe.baking_time }} min
+            </p>
         </div>
     </div>
     <div class="row mt-4 py-4">

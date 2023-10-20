@@ -35,7 +35,9 @@
                     <img src="{{ recipe.image.url }}" alt="{{ recipe.title }}" class="img-fluid">
                     <div class="yellow-card">
                         <h4>{{ recipe.title }}</h4>
-                        <p>By {{ recipe.author }} | {{ recipe.baking_time }} min</p>
+                        <p class="text-center small">By {{ recipe.author }} &nbsp; | &nbsp; 
+                            <i class="fa-regular fa-clock"></i>  {{ recipe.baking_time }} min
+                        </p>
                     </div>
                 </div>
             </a>
