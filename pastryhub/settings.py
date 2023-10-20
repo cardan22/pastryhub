@@ -33,7 +33,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     'pastryhub.herokuapp.com',
-    '8000-cardan22-pastryhub-s5cq6gf7h7b.ws-eu105.gitpod.io',
+    '8000-cardan22-thepastryhub-skozvepkce1.ws-eu105.gitpod.io',
     'pastryhub-a26ff900b5cc.herokuapp.com'
 ]
 
@@ -171,13 +171,9 @@ USE_TZ = True
 
 # Account Setup
 
-ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_USERNAME_REQUIRED = True
-ACCOUNT_EMAIL_VERIFCATION = 'none'
-ACCOUNT_USERNAME_MIN_LENGTH = 4
-LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+ACCOUNT_EMAIL_VERIFICATION = 'none'
 
 # Messages tags
 
