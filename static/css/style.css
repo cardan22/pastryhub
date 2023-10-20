@@ -111,12 +111,13 @@ h1, h2, h3, h4 {
     background-size: cover;
     background-position: center;
     text-align: center;
-    color: white;
+    color: #fff;
     padding: 5rem;
 }
 
 .hero-text {
     font-weight: 700;
+    color: #fff;
 }
 
 .hero-btn {

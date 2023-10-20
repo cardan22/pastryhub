@@ -22,3 +22,5 @@ urlpatterns = [
     path('djrichtextfield/', include('djrichtextfield.urls')),
     path("", include('recipes.urls'), name='recipes_urls'),
 ]
+
+handler404 = "pastryhub.views.page_not_found_view"
