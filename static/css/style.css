@@ -77,7 +77,8 @@ h1, h2, h3, h4 {
 
 .material-symbols-outlined {
     font-size: inherit;
-    vertical-align: middle;
+    vertical-align: bottom;
+    line-height: inherit;
 }
 
 /*  Buttons */
@@ -117,7 +118,6 @@ h1, h2, h3, h4 {
 
 .hero-text {
     font-weight: 700;
-    color: #fff;
 }
 
 .hero-btn {
@@ -215,6 +215,11 @@ h1, h2, h3, h4 {
     background-color: #FFFBE1;
 }
 
+.yellow-background-full {
+    background-color: #FFFBE1;
+    min-height: 100%;
+}
+
 .form-container {
     max-width: 400px;
     padding: 20px;
@@ -276,10 +281,6 @@ h1, h2, h3, h4 {
     .yellow-card {
         min-height: auto;
     }
-
-    .my-recipes-header {
-        height: 20vh;
-    }
 }   
 
 /* // Small devices (landscape phones, 576px and down) */
@@ -298,5 +299,9 @@ h1, h2, h3, h4 {
 
     .yellow-card h4 {
         margin: 0;
+    }
+
+    .recipes-links {
+        display: flow;
     }
 }    
