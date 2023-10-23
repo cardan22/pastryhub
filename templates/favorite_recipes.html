@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% block title %}My Recipes{% endblock %}
+{% block content %}
+
+<!-- Header Section -->
+<div class="{% if favorite_recipes %}yellow-background{% else %}yellow-background-full{% endif %} my-recipes-header d-flex justify-content-center align-items-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <!-- Conditional Header Title -->
+                <h1 class="hero-text">
+                    {% if favorite_recipes %}
+                        <h1>My favorite recipes</h1>
+                    {% else %}
+                        <h1>No favorite recipes yet?</h1>
+                        <p>Your taste buds are missing out!</p>
+                    {% endif %}
+                </h1>
+                <div class="gap-2 d-md-block text-center mt-4">
+                    <!-- "My recipes" Button -->
+                    <a href="{% url 'my_recipes' %}" class="btn btn-primary mt-2 recipes-links">
+                        <span class="material-symbols-outlined">dataset</span> My Recipes
+                    </a>
+                    <!-- "My favorite recipes" Button -->
+                    <a href="{% url 'favorite_recipes' %}" class="btn btn-primary mt-2 recipes-links">
+                        <span class="material-symbols-outlined">favorite</span> Favorite Recipes
+                    </a>
+                    <!-- "Add Recipe" Button -->
+                    <a href="{% url 'add_recipe' %}" class="btn btn-primary mt-2 recipes-links">
+                        <span class="material-symbols-outlined">add_circle</span> Add Recipe
+                    </a>
+                </div> 
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- Main Content Section -->
+    <div class="container-fill mx-lg-5 p-2">
+        <div class="row">
+            <!-- Recipe cards loop -->
+            {% for favorite_recipe in favorite_recipes %}
+            <div class="col-sm-12 col-md-6 col-lg-4">
+                <a href="{% url 'recipe_detail' favorite_recipe.recipe.id %}" class="recipe-link" aria-label="{{ favorite_recipe.recipe.title }}">
+                    <div class="recipe-card">
+                        <img src="{{ favorite_recipe.recipe.image.url }}" alt="{{ favorite_recipe.recipe.title }}" class="img-fluid">
+                        <div class="yellow-card">
+                            <h4>{{ favorite_recipe.recipe.title }}</h4>
+                            <p class="text-center small">By {{ favorite_recipe.recipe.author }} &nbsp; | &nbsp; 
+                                <i class="fa-regular fa-clock"></i>  {{ favorite_recipe.recipe.baking_time }} min
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+
+            <!-- Pagination Navigation -->    
+            {% if is_paginated %}
+            <nav aria-label="Page navigation">
+                <ul class="pagination justify-content-center">
+                    {% if page_obj.has_previous %}
+                    <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link"><i class="fas fa-chevron-left"></i></a></li>
+                    {% endif %}
+                    {% if page_obj.has_next %}
+                    <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"><i class="fas fa-chevron-right"></i></a></li>
+                    {% endif %}
+                </ul>
+        
+            </nav>
+        </div>
+        {% endif %}
+    </div>
+{% endblock %}

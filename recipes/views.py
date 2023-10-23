@@ -83,6 +83,16 @@ class UpdateRecipe(LoginRequiredMixin, UpdateView):
         messages.add_message(self.request, messages.SUCCESS, msg)
         return super(UpdateView, self).form_valid(form)
 
+    def get_object(self, queryset=None):
+        """
+        Retrieve the recipe object to update
+        and check if it belongs to the user.
+        """
+        obj = super(UpdateRecipe, self).get_object(queryset)
+        get_object_or_404(Recipe, author=self.request.user, id=obj.id)
+
+        return obj
+
 
 class DeleteRecipe(LoginRequiredMixin, DeleteView):
     """
@@ -142,3 +152,18 @@ class AddFavoriteRecipe(LoginRequiredMixin, ListView):
             messages.success(request, msg)
 
         return redirect(request.META.get('HTTP_REFERER'))
+
+
+class FavoriteRecipesList(LoginRequiredMixin, ListView):
+    """
+    View to display a list of the user's favorite recipes.
+
+    This view retrieves and displays a list of recipes that the logged-in user
+    has marked as their favorite recipes."""
+
+    model = FavoriteRecipe
+    template_name = 'favorite_recipes.html'
+    context_object_name = 'favorite_recipes'
+
+    def get_queryset(self):
+        return FavoriteRecipe.objects.filter(user=self.request.user)
