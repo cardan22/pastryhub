@@ -1,27 +1,30 @@
 {% extends "base.html" %}
-
 {% load i18n %}
-
 {% block title %}{% trans "Login" %}{% endblock %}
-
 {% block body_class %}yellow-background{% endblock %}
 
 {% block content %}
-<div class="container form-container">
-  <h1 class="p-2 text-center">{% trans "Login" %}</h1>
 
+<div class="container form-container">
+  <!-- Login header -->
+  <h1 class="p-2 text-center">{% trans "Login" %}</h1>
+  
+  <!-- Login Form -->
   <form class="form p-2" method="POST" action="{% url 'account_login' %}">
     {% csrf_token %}
     {{ form|crispy }}
+
+    <!-- Redirect Field -->
     {% if redirect_field_value %}
     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
     {% endif %}
+
+    <!-- Login Button -->
     <button class="btn btn-primary mb-2" type="submit" style="width: 100%">{% trans "Login" %}</button>
+
      <!-- Sign Up Button -->
     {% trans "Sign Up" as signup_text %}
     <a class="btn btn-secondary mb-2" href="{% url 'account_signup' %}" style="width: 100%">{{ signup_text }}</a>
   </form>
-  
-   
 </div>
 {% endblock %}

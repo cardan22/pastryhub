@@ -7,15 +7,25 @@
 {% if user.is_authenticated %}
 {% if user.id == recipe.author.id %}
 
+<!-- Container for the Recipe Update Form -->
 <div class="container form-recipe">
+    <!-- Recipe Update Form -->
     <form class="p-2 form" method="POST" enctype="multipart/form-data" action="{% url 'update' recipe.pk %}">
+        <!-- Page Title -->
         <h1 class="p-4 text-center">Update Recipe</h1>
         {% csrf_token %}
+        <!-- Render form media and form content using the Crispy Forms template tag -->
         {{ form.media }} 
         {{ form | crispy | safe}}
-        <div class="text-center">
-            <button type="submit" class="btn btn-primary w-25 p-2 m-4">Update</button>
-            <button type="submit" class="btn btn-secondary w-25 p-2 m-4">Cancel</button>
+
+        <!-- Buttons for Update and Cancel Actions -->
+        <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary col-6 col-md-3 me-1 p-2 my-4">
+                <span class="material-symbols-outlined">update</span> Update 
+            </button>
+            <button type="submit" class="btn btn-secondary col-6 col-md-3 ms-1 p-2 my-4">
+                <span class="material-symbols-outlined">cancel</span> Cancel
+            </button>
         </div>
     </form>
 </div>

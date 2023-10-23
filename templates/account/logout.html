@@ -1,24 +1,27 @@
 {% extends "base.html" %}
-
 {% load i18n %}
-
-{% block title %}{% trans "Sign Out" %}{% endblock %}
-
+{% block title %}{% trans "Logout" %}{% endblock %}
 {% block body_class %}yellow-background{% endblock %}
 
 {% block content %}
-<div class="container text-center form-container">
-  <h1 class="p-2 text-center">{% trans "Sign Out" %}</h1>
 
-  <p>{% trans 'Are you sure you want to sign out?' %}</p>
 
+<div class="container d-flex flex-column justify-content-center align-items-center form-container" style="height: 100%;">
+  <!-- Logout header -->
+  <h1 class="p-2 text-center">{% trans "Logout" %}</h1>
+
+  <!-- Message for user -->
+  <p class="text-center">{% trans 'Are you ready to take your digital apron off and leave the baking session? 🍰👋😄' %}</p>
+
+  <!-- Logout Form -->
   <form method="post" action="{% url 'account_logout' %}">
     {% csrf_token %}
     {% if redirect_field_value %}
     <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
     {% endif %}
-    <button type="submit" class="btn btn-primary" style="width: 100%">{% trans 'Sign Out' %}</button>
+
+    <!-- Sign Out Button -->
+    <button type="submit" class="btn btn-primary" style="width: 100%">{% trans 'Logout' %}</button>
   </form>
 </div>
-
 {% endblock %}
