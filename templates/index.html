@@ -32,7 +32,7 @@
                     <a href="{% url 'recipe_detail' recipe.id %}" class="recipe-link" aria-label="{{ recipe.title }}">
                     <img src="{{ recipe.image.url }}" alt="{{ recipe.title }}" class="img-fluid">
                 </div>
-                <div class="yellow-card">
+                <div class="yellow-card d-flex flex-column justify-content-between">
                 <h4>{{ recipe.title }}</h4>
                 <p class="text-center small">By {{ recipe.author }} &nbsp; | &nbsp; 
                     <i class="fa-regular fa-clock"></i>  {{ recipe.baking_time }} min
