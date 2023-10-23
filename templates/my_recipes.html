@@ -3,26 +3,39 @@
 {% block content %}
 
 <!-- Header Section -->
-<div class="yellow-background my-recipes-header d-flex justify-content-center align-items-center">
+<div class="{% if recipe_list %}yellow-background{% else %}yellow-background-full{% endif %} my-recipes-header d-flex justify-content-center align-items-center">
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
                 <!-- Conditional Header Title -->
                 <h1 class="hero-text">
                     {% if recipe_list %}
-                        Here are your sweet recipes
+                        <h1>Here are your sweet recipes</h1>
                     {% else %}
-                        You haven't added any recipes yet
+                        <h1>No recipes added?</h1>
+                        <p>Your delightful creations are just waiting to be shared!</p>
                     {% endif %}
                 </h1>
-                <!-- "Add Recipe" Button -->
-                    <a href="{% url 'add_recipe' %}" class="btn btn-primary btn-lg mt-4">Add Recipe</a>
+                <div class="gap-2 d-md-block text-center mt-4">
+                    <!-- "My recipes" Button -->
+                    <a href="{% url 'my_recipes' %}" class="btn btn-primary mt-2 recipes-links">
+                        <span class="material-symbols-outlined">dataset</span> My Recipes
+                    </a>
+                    <!-- "My favorite recipes" Button -->
+                    <a href="{% url 'favorite_recipes' %}" class="btn btn-primary mt-2 recipes-links">
+                        <span class="material-symbols-outlined">favorite</span> Favorite Recipes
+                    </a>
+                    <!-- "Add Recipe" Button -->
+                    <a href="{% url 'add_recipe' %}" class="btn btn-primary mt-2 recipes-links">
+                        <span class="material-symbols-outlined">add_circle</span> Add Recipe
+                    </a>
+                </div>    
             </div>
         </div>
     </div>
 </div>
 <!-- Main Content Section -->
-<div class="container mt-4">
+<div class="container-fill mx-lg-5 p-2">
     <div class="row">
         <!-- Recipe cards loop -->
         {% for recipe in recipe_list %}
