@@ -20,11 +20,11 @@
     {% endif %}
 
     <!-- Login Button -->
-    <button class="btn btn-primary mb-2" type="submit" style="width: 100%">{% trans "Login" %}</button>
+    <button class="btn btn-primary p-2 mb-3" type="submit" style="width: 100%">{% trans "Login" %}</button>
 
      <!-- Sign Up Button -->
     {% trans "Sign Up" as signup_text %}
-    <a class="btn btn-secondary mb-2" href="{% url 'account_signup' %}" style="width: 100%">{{ signup_text }}</a>
+    <a class="btn btn-secondary p-2 mb-2" href="{% url 'account_signup' %}" style="width: 100%">{{ signup_text }}</a>
   </form>
 </div>
 {% endblock %}
