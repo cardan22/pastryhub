@@ -18,15 +18,15 @@
                 </h1>
                 <div class="gap-2 d-md-block text-center mt-4">
                     <!-- "My recipes" Button -->
-                    <a href="{% url 'my_recipes' %}" class="btn btn-primary mt-2 recipes-links">
+                    <a href="{% url 'my_recipes' %}" class="btn btn-primary mt-3 p-2 recipes-links">
                         <span class="material-symbols-outlined">dataset</span> My Recipes
                     </a>
                     <!-- "My favorite recipes" Button -->
-                    <a href="{% url 'favorite_recipes' %}" class="btn btn-primary mt-2 recipes-links">
+                    <a href="{% url 'favorite_recipes' %}" class="btn btn-primary mt-3 p-2 recipes-links">
                         <span class="material-symbols-outlined">favorite</span> Favorite Recipes
                     </a>
                     <!-- "Add Recipe" Button -->
-                    <a href="{% url 'add_recipe' %}" class="btn btn-primary mt-2 recipes-links">
+                    <a href="{% url 'add_recipe' %}" class="btn btn-primary mt-3 p-2 recipes-links">
                         <span class="material-symbols-outlined">add_circle</span> Add Recipe
                     </a>
                 </div> 
@@ -40,14 +40,32 @@
             <!-- Recipe cards loop -->
             {% for favorite_recipe in favorite_recipes %}
             <div class="col-sm-12 col-md-6 col-lg-4">
-                <a href="{% url 'recipe_detail' favorite_recipe.recipe.id %}" class="recipe-link" aria-label="{{ favorite_recipe.recipe.title }}">
                     <div class="recipe-card">
-                        <img src="{{ favorite_recipe.recipe.image.url }}" alt="{{ favorite_recipe.recipe.title }}" class="img-fluid">
-                        <div class="yellow-card">
-                            <h4>{{ favorite_recipe.recipe.title }}</h4>
-                            <p class="text-center small">By {{ favorite_recipe.recipe.author }} &nbsp; | &nbsp; 
-                                <i class="fa-regular fa-clock"></i>  {{ favorite_recipe.recipe.baking_time }} min
-                            </p>
+                        <div class="image-container position-relative">
+                            <div class="favorite-btn-container position-absolute top-0 end-0">
+                                <!-- Favorite Button -->
+                                {% if user.is_authenticated %}
+                                    {% if favorite_recipe.recipe_id not in favorite_recipe_ids %}
+                                        <!-- Add to Favorites Button -->
+                                        <a class="btn btn-like" href="{% url 'add_favorite_recipe' favorite_recipe.recipe.id %}">
+                                            <i class="fa-regular fa-heart"></i>
+                                        </a>
+                                    {% else %}
+                                        <!-- Remove from Favorites Button -->
+                                        <a class="btn btn-like" href="{% url 'add_favorite_recipe' favorite_recipe.recipe.id %}">
+                                            <i class="fa-solid fa-heart"></i>
+                                        </a>
+                                    {% endif %}
+                                {% endif %}
+                            </div>
+                                <a href="{% url 'recipe_detail' favorite_recipe.recipe.id %}" class="recipe-link" aria-label="{{ favorite_recipe.recipe.title }}">
+                                <img src="{{ favorite_recipe.recipe.image.url }}" alt="{{ favorite_recipe.recipe.title }}" class="img-fluid">
+                            <div class="yellow-card">
+                                <h4>{{ favorite_recipe.recipe.title }}</h4>
+                                <p class="text-center small">By {{ favorite_recipe.recipe.author }} &nbsp; | &nbsp; 
+                                    <i class="fa-regular fa-clock"></i>  {{ favorite_recipe.recipe.baking_time }} min
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </a>

@@ -1,6 +1,6 @@
 from django.http import HttpResponseRedirect
 from django.contrib import messages
-from django.urls import reverse_lazy, reverse
+from django.urls import reverse_lazy
 from django.shortcuts import render, get_object_or_404, redirect, reverse
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views.generic import (
@@ -22,6 +22,16 @@ class RecipeList(ListView):
     queryset = Recipe.objects.filter(status=1).order_by("-posted_date")
     template_name = "index.html"
     paginate_by = 6
+    context_object_name = "recipe_list"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if self.request.user.is_authenticated:
+            user = self.request.user
+            favorite_recipes = FavoriteRecipe.objects.filter(user=user, recipe__in=context['recipe_list'])
+            favorite_recipe_ids = [favorite.recipe.id for favorite in favorite_recipes]
+            context['favorite_recipe_ids'] = favorite_recipe_ids
+        return context
 
 
 class RecipeDetail(DetailView):
@@ -120,7 +130,7 @@ class MyRecipesList(LoginRequiredMixin, ListView):
     model = Recipe
     queryset = Recipe.objects.order_by("-posted_date")
     template_name = "my_recipes.html"
-    paginate_by = 8
+    paginate_by = 6
 
     def get_queryset(self):
         queryset = Recipe.objects.filter(
@@ -164,6 +174,14 @@ class FavoriteRecipesList(LoginRequiredMixin, ListView):
     model = FavoriteRecipe
     template_name = 'favorite_recipes.html'
     context_object_name = 'favorite_recipes'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        if self.request.user.is_authenticated:
+            user = self.request.user
+            favorite_recipe_ids = FavoriteRecipe.objects.filter(user=user).values_list('recipe_id', flat=True)
+            context['favorite_recipe_ids'] = favorite_recipe_ids
+        return context
 
     def get_queryset(self):
         return FavoriteRecipe.objects.filter(user=self.request.user)
