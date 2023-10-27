@@ -46,7 +46,7 @@
                         <span class="badge badge-primary">Draft</span>
                     {% endif %}
                     <img src="{{ recipe.image.url }}" alt="{{ recipe.title }}" class="img-fluid">
-                    <div class="yellow-card">
+                    <div class="yellow-card d-flex flex-column justify-content-center">
                         <h4>{{ recipe.title }}</h4>
                         <p class="text-center small">By {{ recipe.author }} &nbsp; | &nbsp; 
                             <i class="fa-regular fa-clock"></i>  {{ recipe.baking_time }} min
