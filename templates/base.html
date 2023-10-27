@@ -35,7 +35,7 @@
    </head>
    <body class="{% block body_class %}{% endblock %}">
       <!-- Navigation -->
-      <nav class="navbar sticky-top navbar-expand-lg">
+      <nav class="navbar fixed-top navbar-expand-lg">
          <div class="container">
             <!-- Logo to the left -->
             <a class="navbar-brand" href="{% url 'home' %}">
@@ -48,7 +48,7 @@
             <!-- Navbar links -->
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                <ul class="navbar-nav ml-auto">
-                <!-- Check if the user is authenticated -->
+               <!-- Check if the user is authenticated -->
                   {% if user.is_authenticated %}
                   <!-- My Recipes, Favorite Recipes, Add Recipe, and Logout links for authenticated users -->
                   <li class="nav-item">
@@ -77,21 +77,22 @@
             </div>
          </div>
       </nav>
-      <!-- Container for the success messages  -->
-      <div class="container">
-         <div class="row alert-fixed">
-            <div class="col-8 mx-auto m-0">
-               {% if messages %} {% for message in messages %}
-               <div class="alert {{ message.tags }} alert-dismissible fade show mt-3" id="msg" role="alert" aria-label="Success Message">
-                  {{ message | safe }}
-                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-               </div>
-               {% endfor %} {% endif %}
-            </div>
-         </div>
-      </div>
+
       <!-- Main Content-->
       <main>
+            <!-- Container for the success messages  -->
+            <div class="container-fluid">
+               <div class="row alert-fixed">
+                  <div class="col-12 mx-auto m-0">
+                     {% if messages %} {% for message in messages %}
+                     <div class="alert {{ message.tags }} alert-dismissible fade show mt-3" id="msg" role="alert" aria-label="Success Message">
+                        {{ message | safe }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                     </div>
+                     {% endfor %} {% endif %}
+                  </div>
+               </div>
+            </div>
          {% block content %}
          <!-- Content Goes here -->
          {% endblock %}
