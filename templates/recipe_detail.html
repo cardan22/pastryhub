@@ -33,7 +33,7 @@
             {% endif %}
             
             <!-- Recipe Title and Author Information -->
-            <h1 class="text-center pt-4">{{ recipe.title }}</h1>
+            <h1 class="text-center pt-1">{{ recipe.title }}</h1>
             <p class="text-center text-muted small">By {{ recipe.author }} &nbsp; | &nbsp; 
                 <i class="fa-regular fa-clock"></i>  {{ recipe.baking_time }} min
             </p>
@@ -45,7 +45,7 @@
             <h2>Ingredients</h2>
             <p>{{ recipe.ingredients | safe }}</p>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 mb-3">
             <!-- Instructions Section -->
             <h2>Instructions</h2>
             <p>{{ recipe.instructions | safe }}</p>
@@ -56,17 +56,17 @@
         
         <!-- Edit and Delete Options for the Author -->
         <div class="d-flex justify-content-center">
-            <a href="{% url 'update' recipe.pk %}" class="btn btn-primary col-6 col-md-3 me-1 p-2">
+            <a href="{% url 'update' recipe.pk %}" class="btn btn-primary col-6 col-md-3 me-1 p-2 mb-4">
                 <span class="material-symbols-outlined">edit</span> Edit
             </a>
-            <a href="{% url 'delete' recipe.pk %}" class="btn btn-secondary col-6 col-md-3 ms-1 p-2">
+            <a href="{% url 'delete' recipe.pk %}" class="btn btn-secondary col-6 col-md-3 ms-1 p-2 mb-4">
                 <span class="material-symbols-outlined">delete</span> Delete
             </a>
         </div>
         {% endif %}
             <!-- Show More Recipes Button -->
             <div class="d-flex justify-content-center">
-                <a href="{% url 'home' %}" class="btn btn-primary col-12 col-md-4 col-lg-3 p-2 mb-4">Show more recipes
+                <a href="{% url 'home' %}" class="btn btn-primary col-12 col-md-4 col-lg-3 p-2 mb-5">Show more recipes
                     <span class="material-symbols-outlined">chevron_right</span>
                 </a>
             </div>
