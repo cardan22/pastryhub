@@ -35,39 +35,39 @@
     </div>
 </div>
     <!-- Main Content Section -->
-    <div class="container-fill mx-lg-5 p-2">
+    <div class="container my-4">
         <div class="row">
             <!-- Recipe cards loop -->
             {% for favorite_recipe in favorite_recipes %}
-            <div class="col-sm-12 col-md-6 col-lg-4">
-                    <div class="recipe-card">
-                        <div class="image-container position-relative">
-                            <div class="favorite-btn-container position-absolute top-0 end-0">
-                                <!-- Favorite Button -->
-                                {% if user.is_authenticated %}
-                                    {% if favorite_recipe.recipe_id not in favorite_recipe_ids %}
-                                        <!-- Add to Favorites Button -->
-                                        <a class="btn btn-like" href="{% url 'add_favorite_recipe' favorite_recipe.recipe.id %}">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </a>
-                                    {% else %}
-                                        <!-- Remove from Favorites Button -->
-                                        <a class="btn btn-like" href="{% url 'add_favorite_recipe' favorite_recipe.recipe.id %}">
-                                            <i class="fa-solid fa-heart"></i>
-                                        </a>
-                                    {% endif %}
+            <div class="col-sm-6 col-lg-4">
+                <div class="recipe-card">
+                    <div class="image-card">
+                        <div class="favorite-btn-container position-absolute top-0 end-0">
+                            <!-- Favorite Button -->
+                            {% if user.is_authenticated %}
+                                {% if favorite_recipe.recipe_id not in favorite_recipe_ids %}
+                                    <!-- Add to Favorites Button -->
+                                    <a class="btn btn-like" href="{% url 'add_favorite_recipe' favorite_recipe.recipe.id %}">
+                                        <i class="fa-regular fa-heart"></i>
+                                    </a>
+                                {% else %}
+                                    <!-- Remove from Favorites Button -->
+                                    <a class="btn btn-like" href="{% url 'add_favorite_recipe' favorite_recipe.recipe.id %}">
+                                        <i class="fa-solid fa-heart"></i>
+                                    </a>
                                 {% endif %}
-                            </div>
-                                <a href="{% url 'recipe_detail' favorite_recipe.recipe.id %}" class="recipe-link" aria-label="{{ favorite_recipe.recipe.title }}">
-                                <img src="{{ favorite_recipe.recipe.image.url }}" alt="{{ favorite_recipe.recipe.title }}" class="img-fluid">
-                            <div class="yellow-card d-flex flex-column justify-content-center">
-                                <h4>{{ favorite_recipe.recipe.title }}</h4>
-                                <p class="text-center small">By {{ favorite_recipe.recipe.author }} &nbsp; | &nbsp; 
-                                    <i class="fa-regular fa-clock"></i>  {{ favorite_recipe.recipe.baking_time }} min
-                                </p>
-                            </div>
+                            {% endif %}
                         </div>
-                    </div>
+                            <a href="{% url 'recipe_detail' favorite_recipe.recipe.id %}" class="recipe-link" aria-label="{{ favorite_recipe.recipe.title }}">
+                            <img src="{{ favorite_recipe.recipe.image.url }}" alt="{{ favorite_recipe.recipe.title }}">
+                        </div>
+                        <div class="yellow-card d-flex flex-column justify-content-center">
+                            <h4>{{ favorite_recipe.recipe.title }}</h4>
+                            <p class="text-center small">By {{ favorite_recipe.recipe.author }} &nbsp; | &nbsp; 
+                                <i class="fa-regular fa-clock"></i>  {{ favorite_recipe.recipe.baking_time }} min
+                            </p>
+                        </div>
+                </div>
                 </a>
             </div>
             {% endfor %}
