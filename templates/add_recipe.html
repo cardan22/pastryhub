@@ -9,6 +9,7 @@
     <form class="p-2 form" method="POST" enctype="multipart/form-data" action="{% url 'add_recipe' %}">
         <!-- Page Title -->
         <h1 class="p-4 text-center">Add Recipe</h1>
+        <p class="text-center">Fill out the form below to share your recipe</p>
         {% csrf_token %}
         <!-- Render form media and form content using the Crispy Forms template tag -->
         {{ form.media }} 
