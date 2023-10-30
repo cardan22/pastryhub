@@ -25,7 +25,7 @@ a {
 }
 
 a:hover {
-    color: #FF6B8A;
+    color: #FF577A;
 }
 
 header {
@@ -80,7 +80,7 @@ h1, h2, h3, h4 {
 }
 
 .navbar-nav .nav-item .nav-link:hover {
-    color: #FF6B8A;
+    color: #FF577A;
   }
 
 .material-symbols-outlined {
@@ -92,8 +92,8 @@ h1, h2, h3, h4 {
 /*  Buttons */
 
 .btn-primary {
-    background-color: #FF6B8A;
-    border-color: #FF6B8A;
+    background-color: #FF577A;
+    border-color: #FF577A;
 }
 
 .btn-primary:hover {
@@ -123,7 +123,7 @@ h1, h2, h3, h4 {
 /* Hero section with background image */
 
 .hero {
-    background-image: url(https://res.cloudinary.com/dl1cowuzi/image/upload/v1697524159/jordane-mathieu-f4259usPV14-unsplash_xn0sca.jpg);
+    background-image: url(https://res.cloudinary.com/dl1cowuzi/image/upload/jordane-mathieu-f4259usPV14-unsplash_1_pipt1r.jpg);
     background-size: cover;
     background-position: center;
     text-align: center;
@@ -179,7 +179,7 @@ h1, h2, h3, h4 {
     flex-direction: column;
 }
 
-.yellow-card h4 {
+.yellow-card h2 {
     text-align: center;
     font-weight: bold;
     padding: 1rem, 2rem;
@@ -190,6 +190,7 @@ h1, h2, h3, h4 {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal; 
+    font-size: calc(1.275rem + .3vw);
 }
 
 .header-card {
@@ -202,7 +203,7 @@ h1, h2, h3, h4 {
 }
 
 .page-link {
-    background-color: #FF6B8A;
+    background-color: #FF577A;
     color: #fff;
     border-radius: .3rem;
     margin: 1rem;
@@ -232,7 +233,7 @@ h1, h2, h3, h4 {
  }
 
  .btn-like {
-    color: #FF6B8A;
+    color: #FF577A;
     font-size: 2rem;
  }
 
@@ -252,7 +253,7 @@ h1, h2, h3, h4 {
 
  .badge-primary {
     z-index: 1;
-    background-color: #FF6B8A;
+    background-color: #191F39;
     padding: 2rem;
     position: absolute;
     margin: 1rem;
@@ -295,7 +296,7 @@ h1, h2, h3, h4 {
 }
 
 .footer-icons:hover {
-    color: #FF6B8A;
+    color: #FF577A;
 }
 
 .copyright {
@@ -346,7 +347,7 @@ h1, h2, h3, h4 {
         margin: 0.8rem;
     }
 
-    .yellow-card h4 {
+    .yellow-card h2 {
         margin: 0.5 0;
     }
 

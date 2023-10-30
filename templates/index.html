@@ -8,11 +8,11 @@
         <div class="col-md-12 text-center">
             <h1 class="display-4 hero-text">Share your <br>sweet secrets!</h1>
             {% if user.is_authenticated %}
-                <a class="btn btn-primary btn-lg hero-btn mt-3 p-2" href="{% url 'add_recipe' %}">
+                <a class="btn btn-primary btn-lg hero-btn mt-3 p-2" href="{% url 'add_recipe' %}" aria-label="Add Recipe">
                     <span class="material-symbols-outlined">add_circle</span> Add Recipe
                 </a>
             {% else %}
-                <a class="btn btn-primary btn-lg hero-btn mt-3 p-2" href="{% url 'account_login' %}">
+                <a class="btn btn-primary btn-lg hero-btn mt-3 p-2" href="{% url 'account_login' %}" aria-label="Log In to Add Recipe">
                     <span class="material-symbols-outlined">login</span> Log In to Add Recipe
                 </a>
             {% endif %}
@@ -35,28 +35,31 @@
                         {% if user.is_authenticated %}
                             {% if recipe.id not in favorite_recipe_ids %}
                                 <!-- Add to Favorites Button -->
-                                <a class="btn btn-like" href="{% url 'add_favorite_recipe' recipe.id %}">
+                                <a class="btn btn-like" href="{% url 'add_favorite_recipe' recipe.id %}" aria-label="Add to Favorites">
                                     <i class="fa-regular fa-heart"></i>
                                 </a>
                             {% else %}
                                 <!-- Remove from Favorites Button -->
-                                <a class="btn btn-like" href="{% url 'add_favorite_recipe' recipe.id %}">
+                                <a class="btn btn-like" href="{% url 'add_favorite_recipe' recipe.id %}" aria-label="Remove from Favorites">
                                     <i class="fa-solid fa-heart"></i>
                                 </a>
                             {% endif %}
                         {% endif %}
                     </div>
 
-                    <a href="{% url 'recipe_detail' recipe.id %}" class="recipe-link" aria-label="{{ recipe.title }}">
-                        <img src="{{ recipe.image.url }}" alt="{{ recipe.title }}">
+                    <a href="{% url 'recipe_detail' recipe.id %}" class="recipe-link" aria-label="View Recipe image">
+                        <img src="{{ recipe.image.url }}" alt="{{ recipe.title }}" aria-label="View Recipe Details">
+                        <span class="sr-only">{{ recipe.title }}</span>
+                    </a>                        
                 </div>
-                <div class="yellow-card d-flex flex-column justify-content-center">
-                    <h4>{{ recipe.title }}</h4>
-                    <p class="text-center small">By {{ recipe.author }} &nbsp; | &nbsp; 
-                        <i class="fa-regular fa-clock"></i>  {{ recipe.baking_time }} min
-                    </p>
-                </div>
-                    </a>
+                <a href="{% url 'recipe_detail' recipe.id %}" class="recipe-link" aria-label="View Recipe Details">
+                    <div class="yellow-card d-flex flex-column justify-content-center">
+                        <h2>{{ recipe.title }}</h2>
+                        <p class="text-center small">By {{ recipe.author }} &nbsp; | &nbsp; 
+                            <i class="fa-regular fa-clock"></i>  {{ recipe.baking_time }} min
+                        </p>
+                    </div>
+                </a>
             </div>
         </div>
         {% endfor %}
@@ -67,10 +70,10 @@
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
             {% if page_obj.has_previous %}
-            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link"><i class="fas fa-chevron-left"></i></a></li>
+            <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link" aria-label="Previous Page"><i class="fas fa-chevron-left"></i></a></li>
             {% endif %}
             {% if page_obj.has_next %}
-            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"><i class="fas fa-chevron-right"></i></a></li>
+            <li><a href="?page={{ page_obj.next_page_number }}" class="page-link" aria-label="Next Page"><i class="fas fa-chevron-right"></i></a></li>
             {% endif %}
         </ul>
     </nav>

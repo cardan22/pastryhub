@@ -18,15 +18,15 @@
                 </h1>
                 <div class="gap-2 d-md-block text-center mt-4">
                     <!-- "My recipes" Button -->
-                    <a href="{% url 'my_recipes' %}" class="btn btn-primary mt-3 p-2 recipes-links">
+                    <a href="{% url 'my_recipes' %}" class="btn btn-primary mt-3 p-2 recipes-links" aria-label="My Recipes">
                         <span class="material-symbols-outlined">dataset</span> My Recipes
                     </a>
                     <!-- "My favorite recipes" Button -->
-                    <a href="{% url 'favorite_recipes' %}" class="btn btn-primary mt-3 p-2 recipes-links">
+                    <a href="{% url 'favorite_recipes' %}" class="btn btn-primary mt-3 p-2 recipes-links" aria-label="Favorite Recipes">
                         <span class="material-symbols-outlined">favorite</span> Favorite Recipes
                     </a>
                     <!-- "Add Recipe" Button -->
-                    <a href="{% url 'add_recipe' %}" class="btn btn-primary mt-3 p-2 recipes-links">
+                    <a href="{% url 'add_recipe' %}" class="btn btn-primary mt-3 p-2 recipes-links" aria-label="Add Recipe">
                         <span class="material-symbols-outlined">add_circle</span> Add Recipe
                     </a>
                 </div> 
@@ -47,28 +47,30 @@
                             {% if user.is_authenticated %}
                                 {% if favorite_recipe.recipe_id not in favorite_recipe_ids %}
                                     <!-- Add to Favorites Button -->
-                                    <a class="btn btn-like" href="{% url 'add_favorite_recipe' favorite_recipe.recipe.id %}">
+                                    <a class="btn btn-like" href="{% url 'add_favorite_recipe' favorite_recipe.recipe.id %}" aria-label="Add to Favorites">
                                         <i class="fa-regular fa-heart"></i>
                                     </a>
                                 {% else %}
                                     <!-- Remove from Favorites Button -->
-                                    <a class="btn btn-like" href="{% url 'add_favorite_recipe' favorite_recipe.recipe.id %}">
+                                    <a class="btn btn-like" href="{% url 'add_favorite_recipe' favorite_recipe.recipe.id %}" aria-label="Remove from Favorites">
                                         <i class="fa-solid fa-heart"></i>
                                     </a>
                                 {% endif %}
                             {% endif %}
                         </div>
-                            <a href="{% url 'recipe_detail' favorite_recipe.recipe.id %}" class="recipe-link" aria-label="{{ favorite_recipe.recipe.title }}">
-                            <img src="{{ favorite_recipe.recipe.image.url }}" alt="{{ favorite_recipe.recipe.title }}">
-                        </div>
+                        <a href="{% url 'recipe_detail' favorite_recipe.recipe.id %}" class="recipe-link" aria-label="View Recipe Image">
+                        <img src="{{ favorite_recipe.recipe.image.url }}" alt="{{ favorite_recipe.recipe.title }}">
+                        </a>
+                    </div>
+                    <a href="{% url 'recipe_detail' favorite_recipe.recipe.id %}" class="recipe-link" aria-label="View Recipe Details"></a>
                         <div class="yellow-card d-flex flex-column justify-content-center">
-                            <h4>{{ favorite_recipe.recipe.title }}</h4>
+                            <h2>{{ favorite_recipe.recipe.title }}</h2>
                             <p class="text-center small">By {{ favorite_recipe.recipe.author }} &nbsp; | &nbsp; 
                                 <i class="fa-regular fa-clock"></i>  {{ favorite_recipe.recipe.baking_time }} min
                             </p>
                         </div>
+                    </a>
                 </div>
-                </a>
             </div>
             {% endfor %}
 
