@@ -8,15 +8,11 @@
 
 /* Body */
 
-html, body {
-    height: 100%;
-    margin-top: 3.5rem;
-}
-
 body {
     display: flex;
     flex-direction: column;
     font-family: "DM Sans", sans-serif;
+    min-height: 100vh; 
 }
 
 main {
@@ -30,6 +26,12 @@ a {
 
 a:hover {
     color: #FF6B8A;
+}
+
+header {
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1;
 }
 
 /* Fonts */
@@ -142,20 +144,39 @@ h1, h2, h3, h4 {
 .recipe-card {
     border-radius: 10px;
     margin: 1rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
-.recipe-card img {
-    border-radius: 10px 10px 0 0;
-    height: 15rem;
-    width: 100%;
-    object-fit: cover;
+.image-card {
+    position: relative;
+    z-index: 0;
+    padding-bottom: 60%;
+    overflow: hidden;
+    background-position: center;
+    background-size: cover;
 }
+
+.image-card img {
+    border-radius: 10px 10px 0 0;
+    position: absolute;
+    z-index: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity .25s;
+} 
 
 .yellow-card {
     padding: 1rem;
     background-color: #FFFBE1;
     border-radius: 0 0 10px 10px;
     min-height: 180px;
+    display: flex;
+    flex-direction: column;
 }
 
 .yellow-card h4 {
@@ -169,6 +190,11 @@ h1, h2, h3, h4 {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal; 
+}
+
+.header-card {
+    display: flex;
+    align-items: center;
 }
 
 .yellow-card p {
@@ -186,6 +212,10 @@ h1, h2, h3, h4 {
     background-color: #191F39;
     color: #fff;
     border-radius: .3rem
+}
+
+.favorite-btn-container {
+    z-index: 1050;
 }
 
 /* Recipe detail view */
@@ -281,10 +311,6 @@ h1, h2, h3, h4 {
 
 /* // Medium devices (tablets, 992 and down) */
 @media screen and (max-width: 992px) {
-    html, body {
-        margin-top: 1rem;
-    }
-
     .navbar {
         padding: 0.4rem;
     }
@@ -301,17 +327,13 @@ h1, h2, h3, h4 {
         margin: 1rem;
     }
 
-    .recipe-img {
-        max-height: 50vh;
-    }
-
     .yellow-card {
         padding: 2rem;
     }
-}   
+}
 
 /* // Small devices (landscape phones, 576px and down) */
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 576px) {    
     .hero {
         padding: 2rem;
     }
@@ -324,12 +346,8 @@ h1, h2, h3, h4 {
         margin: 0.8rem;
     }
 
-    .recipe-card img {
-        height: 25vh;
-    }
-
     .yellow-card h4 {
-        margin: 0;
+        margin: 0.5 0;
     }
 
     .text-center h1 {
@@ -338,5 +356,9 @@ h1, h2, h3, h4 {
 
     .recipes-links {
         display: flow;
+    }
+
+    .my-recipes-header {
+        height: 50vh;
     }
 }    

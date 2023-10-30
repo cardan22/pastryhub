@@ -33,9 +33,10 @@
       <!-- Title -->
       <title>{% block title %}{% endblock %} | The Pastry Hub</title>
    </head>
-   <body class="{% block body_class %}{% endblock %}">
-      <!-- Navigation -->
-      <nav class="navbar fixed-top navbar-expand-lg">
+   <body class="{% block body_class %}{% endblock %}"></body>
+   <!-- Navigation -->
+   <header>
+      <nav class="navbar navbar-expand-lg">
          <div class="container">
             <!-- Logo to the left -->
             <a class="navbar-brand" href="{% url 'home' %}">
@@ -77,41 +78,42 @@
             </div>
          </div>
       </nav>
+   </header>
 
-      <!-- Main Content-->
-      <main>
-            <!-- Container for the success messages  -->
-            <div class="container-fluid">
-               <div class="row alert-fixed">
-                  <div class="col-12 mx-auto m-0">
-                     {% if messages %} {% for message in messages %}
-                     <div class="alert {{ message.tags }} alert-dismissible fade show mt-3" id="msg" role="alert" aria-label="Success Message">
-                        {{ message | safe }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                     </div>
-                     {% endfor %} {% endif %}
+   <!-- Main Content-->
+   <main>
+         <!-- Container for the success messages  -->
+         <div class="container-fluid">
+            <div class="row alert-fixed">
+               <div class="col-12 mx-auto m-0">
+                  {% if messages %} {% for message in messages %}
+                  <div class="alert {{ message.tags }} alert-dismissible fade show mt-3" id="msg" role="alert" aria-label="Success Message">
+                     {{ message | safe }}
+                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                   </div>
+                  {% endfor %} {% endif %}
                </div>
             </div>
-         {% block content %}
-         <!-- Content Goes here -->
-         {% endblock %}
-      </main>
-      <!-- Footer -->
-      <footer class="footer">
-          <!-- Social Media Icons -->
-         <a href="https://www.facebook.com" target="_blank" class="footer-icons" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-         <a href="https://www.instagram.com" target="_blank" class="footer-icons" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-         <p class="copyright">&copy; Designed by Caroline Danielsson</p>
-      </footer>
-      <!--Script that fades out the success message after a certain time -->
-      <script src="https://kit.fontawesome.com/3e15c9c764.js" crossorigin="anonymous"></script>
-      <script>
-         setTimeout(function () {
-             let messages = document.getElementById('msg');
-             let alert = new bootstrap.Alert(messages);
-             alert.close();
-         }, 2000);
-      </script>
-   </body>
+         </div>
+      {% block content %}
+      <!-- Content Goes here -->
+      {% endblock %}
+   </main>
+   <!-- Footer -->
+   <footer class="footer">
+         <!-- Social Media Icons -->
+      <a href="https://www.facebook.com" target="_blank" class="footer-icons" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+      <a href="https://www.instagram.com" target="_blank" class="footer-icons" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      <p class="copyright">&copy; Designed by <a href="https://www.linkedin.com/in/caroline-danielsson-57447a57" target="_blank" aria-label="Caroline Danielsson Linkedin profile">Caroline Danielsson</p></a>
+   </footer>
+   <!--Script that fades out the success message after a certain time -->
+   <script src="https://kit.fontawesome.com/3e15c9c764.js" crossorigin="anonymous"></script>
+   <script>
+      setTimeout(function () {
+            let messages = document.getElementById('msg');
+            let alert = new bootstrap.Alert(messages);
+            alert.close();
+      }, 2000);
+   </script>
+   
 </html>
