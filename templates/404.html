@@ -1,20 +1,18 @@
 {% extends "base.html" %}
 {% block title %}404 Error{% endblock %}
 {% block content %}
-
 <!-- Hero image and call to action -->
 <header class="bg-image-full d-flex justify-content-center align-items-center"
-    style="background-image: url(https://res.cloudinary.com/dl1cowuzi/image/upload/jordane-mathieu-f4259usPV14-unsplash_xn0sca.jpg); 
-    background-size: cover; background-position: center; background-repeat: no-repeat; width: 100%; height: 70vh;">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-center text-white">
-                <h1 class="hero-text text-center">Oops! We Lost a Recipe 🧁</h1>
-                <p class="hero-text">Maybe it's in a cookbook on the moon?</p>
-                <a class="btn btn-primary btn-lg hero-btn" href="{% url 'home' %}">Take me home</a>
-            </div>
-        </div>
-    </div>
+   style="background-image: url(https://res.cloudinary.com/dl1cowuzi/image/upload/jordane-mathieu-f4259usPV14-unsplash_xn0sca.jpg); 
+   background-size: cover; background-position: center; background-repeat: no-repeat; width: 100%; height: 70vh;">
+   <div class="container">
+      <div class="row">
+         <div class="col-md-12 text-center text-white">
+            <h1 class="hero-text text-center">Oops! We Lost a Recipe 🧁</h1>
+            <p class="hero-text">Maybe it's in a cookbook on the moon?</p>
+            <a class="btn btn-primary btn-lg hero-btn" href="{% url 'home' %}">Take me home</a>
+         </div>
+      </div>
+   </div>
 </header>
-
 {% endblock %}

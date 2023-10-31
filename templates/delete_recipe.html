@@ -2,35 +2,32 @@
 {% block title %}Delete Recipes{% endblock %}
 {% block body_class %}yellow-background{% endblock %}
 {% block content %}
-
 {% if user.is_authenticated %}
 {% if user.id == recipe.author.id %}
-
 <!-- Delete Recipe Confirmation -->
 <div class="container d-flex flex-column justify-content-center align-items-center" style="height: 60vh;">
-    <div class="row">
-        <div class="col-md-12 text-center">
-            <!-- Page Title -->
-            <h1 class="hero-text p-2">Delete your recipe</h1>
-            <p>Are you certain about deleting the recipe titled "{{ recipe.title }}"?</p>
-            <!-- Delete Recipe Form -->
-            <form method="POST" class="form text-muted" action="{% url 'delete' recipe.pk %}"
-                enctype="multipart/form-data">
-                {% csrf_token %}
-                <!-- Buttons for Delete and Cancel Actions -->
-                <div class="d-grid gap-2 d-md-block">
-                    <button type="submit" class="btn btn-primary p-2">
-                        <span class="material-symbols-outlined">delete</span> Delete
-                    </button>
-                    <a href="{% url 'home' %}" class="btn btn-secondary p-2">
-                        <span class="material-symbols-outlined">cancel</span> Cancel
-                    </a>
-                </div>
-            </form>
-        </div>
-    </div>
+   <div class="row">
+      <div class="col-md-12 text-center">
+         <!-- Page Title -->
+         <h1 class="hero-text p-2">Delete your recipe</h1>
+         <p>Are you certain about deleting the recipe titled "{{ recipe.title }}"?</p>
+         <!-- Delete Recipe Form -->
+         <form method="POST" class="form text-muted" action="{% url 'delete' recipe.pk %}"
+            enctype="multipart/form-data">
+            {% csrf_token %}
+            <!-- Buttons for Delete and Cancel Actions -->
+            <div class="d-grid gap-2 d-md-block">
+               <button type="submit" class="btn btn-primary p-2">
+               <span class="material-symbols-outlined">delete</span> Delete
+               </button>
+               <a href="{% url 'home' %}" class="btn btn-secondary p-2">
+               <span class="material-symbols-outlined">cancel</span> Cancel
+               </a>
+            </div>
+         </form>
+      </div>
+   </div>
 </div>
 {% endif %}
 {% endif %}
-
 {% endblock %}
