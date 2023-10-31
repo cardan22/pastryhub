@@ -28,31 +28,26 @@
         {% for recipe in recipe_list %}
         <div class="col-sm-6 col-lg-4">
             <div class="recipe-card">
-                <div class="image-card">
-                    
-                    <div class="favorite-btn-container position-absolute top-0 end-0">
-                        <!-- Favorite Button -->
-                        {% if user.is_authenticated %}
-                            {% if recipe.id not in favorite_recipe_ids %}
-                                <!-- Add to Favorites Button -->
-                                <a class="btn btn-like" href="{% url 'add_favorite_recipe' recipe.id %}" aria-label="Add to Favorites">
-                                    <i class="fa-regular fa-heart"></i>
-                                </a>
-                            {% else %}
-                                <!-- Remove from Favorites Button -->
-                                <a class="btn btn-like" href="{% url 'add_favorite_recipe' recipe.id %}" aria-label="Remove from Favorites">
-                                    <i class="fa-solid fa-heart"></i>
-                                </a>
+                    <div class="image-card">
+                        <div class="favorite-btn-container position-absolute top-0 end-0">
+                            <!-- Favorite Button -->
+                            {% if user.is_authenticated %}
+                                {% if recipe.id not in favorite_recipe_ids %}
+                                    <!-- Add to Favorites Button -->
+                                    <a class="btn btn-like" href="{% url 'add_favorite_recipe' recipe.id %}" aria-label="Add to Favorites">
+                                        <i class="fa-regular fa-heart"></i>
+                                    </a>
+                                {% else %}
+                                    <!-- Remove from Favorites Button -->
+                                    <a class="btn btn-like" href="{% url 'add_favorite_recipe' recipe.id %}" aria-label="Remove from Favorites">
+                                        <i class="fa-solid fa-heart"></i>
+                                    </a>
+                                {% endif %}
                             {% endif %}
-                        {% endif %}
+                        </div>
+                <a href="{% url 'recipe_detail' recipe.id %}">
+                        <img src="{{ recipe.image.url }}" alt="{{ recipe.title }}">
                     </div>
-
-                    <a href="{% url 'recipe_detail' recipe.id %}" class="recipe-link" aria-label="View Recipe image">
-                        <img src="{{ recipe.image.url }}" alt="{{ recipe.title }}" aria-label="View Recipe Details">
-                        <span class="sr-only">{{ recipe.title }}</span>
-                    </a>                        
-                </div>
-                <a href="{% url 'recipe_detail' recipe.id %}" class="recipe-link" aria-label="View Recipe Details">
                     <div class="yellow-card d-flex flex-column justify-content-center">
                         <h2>{{ recipe.title }}</h2>
                         <p class="text-center small">By {{ recipe.author }} &nbsp; | &nbsp; 

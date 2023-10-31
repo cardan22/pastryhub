@@ -12,7 +12,7 @@
       <!-- Fonts and Stylesheets -->
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-      <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,700&display=swap" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&display=swap" rel="stylesheet">
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous" />
       
       <!-- Bootstrap JavaScript -->
@@ -33,7 +33,6 @@
       <!-- Title -->
       <title>{% block title %}{% endblock %} | The Pastry Hub</title>
    </head>
-   <body class="{% block body_class %}{% endblock %}"></body>
    <!-- Navigation -->
    <header>
       <nav class="navbar navbar-expand-lg">
@@ -81,7 +80,7 @@
    </header>
 
    <!-- Main Content-->
-   <main>
+   <main class="{% block body_class %}{% endblock %}">
          <!-- Container for the success messages  -->
          <div class="container-fluid">
             <div class="row alert-fixed">

@@ -3,19 +3,12 @@
 {% block content %}
 
 <!-- Header Section -->
-<div class="{% if favorite_recipes %}yellow-background{% else %}yellow-background-full{% endif %} my-recipes-header d-flex justify-content-center align-items-center">
+<div class="yellow-background my-recipes-header d-flex justify-content-center align-items-center">
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
                 <!-- Conditional Header Title -->
-                <h1 class="hero-text">
-                    {% if favorite_recipes %}
-                        <h1>My favorite recipes</h1>
-                    {% else %}
-                        <h1>No favorite recipes yet?</h1>
-                        <p>Mark your favorite recipes using the heart icon <span class="material-symbols-outlined">favorite</span></p>
-                    {% endif %}
-                </h1>
+                <h1 class="hero-text">My favorite recipes</h1>
                 <div class="gap-2 d-md-block text-center mt-4">
                     <!-- "My recipes" Button -->
                     <a href="{% url 'my_recipes' %}" class="btn btn-primary mt-3 p-2 recipes-links" aria-label="My Recipes">
@@ -29,65 +22,73 @@
                     <a href="{% url 'add_recipe' %}" class="btn btn-primary mt-3 p-2 recipes-links" aria-label="Add Recipe">
                         <span class="material-symbols-outlined">add_circle</span> Add Recipe
                     </a>
-                </div> 
+                </div>
             </div>
         </div>
     </div>
 </div>
-    <!-- Main Content Section -->
-    <div class="container my-4">
-        <div class="row">
-            <!-- Recipe cards loop -->
+
+<!-- Main Content Section -->
+<div class="container my-4">
+    <div class="row">
+        {% if favorite_recipes %}
             {% for favorite_recipe in favorite_recipes %}
-            <div class="col-sm-6 col-lg-4">
-                <div class="recipe-card">
-                    <div class="image-card">
-                        <div class="favorite-btn-container position-absolute top-0 end-0">
-                            <!-- Favorite Button -->
-                            {% if user.is_authenticated %}
-                                {% if favorite_recipe.recipe_id not in favorite_recipe_ids %}
-                                    <!-- Add to Favorites Button -->
-                                    <a class="btn btn-like" href="{% url 'add_favorite_recipe' favorite_recipe.recipe.id %}" aria-label="Add to Favorites">
-                                        <i class="fa-regular fa-heart"></i>
-                                    </a>
-                                {% else %}
-                                    <!-- Remove from Favorites Button -->
-                                    <a class="btn btn-like" href="{% url 'add_favorite_recipe' favorite_recipe.recipe.id %}" aria-label="Remove from Favorites">
-                                        <i class="fa-solid fa-heart"></i>
-                                    </a>
+                <div class="col-sm-6 col-lg-4">
+                    <div class="recipe-card">
+                        <div class="image-card">
+                            <div class="favorite-btn-container position-absolute top-0 end-0">
+                                <!-- Favorite Button -->
+                                {% if user.is_authenticated %}
+                                    {% if favorite_recipe.recipe_id not in favorite_recipe_ids %}
+                                        <!-- Add to Favorites Button -->
+                                        <a class="btn btn-like" href="{% url 'add_favorite_recipe' favorite_recipe.recipe.id %}" aria-label="Add to Favorites">
+                                            <i class="fa-regular fa-heart"></i>
+                                        </a>
+                                    {% else %}
+                                        <!-- Remove from Favorites Button -->
+                                        <a class="btn btn-like" href="{% url 'add_favorite_recipe' favorite_recipe.recipe.id %}" aria-label="Remove from Favorites">
+                                            <i class="fa-solid fa-heart"></i>
+                                        </a>
+                                    {% endif %}
                                 {% endif %}
-                            {% endif %}
+                            </div>
+                            <a href="{% url 'recipe_detail' favorite_recipe.recipe.id %}">
+                                <img src="{{ favorite_recipe.recipe.image.url }}" alt="{{ favorite_recipe.recipe.title }}">
+                            </a>
                         </div>
-                        <a href="{% url 'recipe_detail' favorite_recipe.recipe.id %}" class="recipe-link" aria-label="View Recipe Image">
-                        <img src="{{ favorite_recipe.recipe.image.url }}" alt="{{ favorite_recipe.recipe.title }}">
+                        <a href="{% url 'recipe_detail' favorite_recipe.recipe.id %}">
+                            <div class="yellow-card d-flex flex-column justify-content-center">
+                                <h2>{{ favorite_recipe.recipe.title }}</h2>
+                                <p class="text-center small">By {{ favorite_recipe.recipe.author }} &nbsp; | &nbsp; 
+                                    <i class="fa-regular fa-clock"></i>  {{ favorite_recipe.recipe.baking_time }} min
+                                </p>
+                            </div>
                         </a>
                     </div>
-                    <a href="{% url 'recipe_detail' favorite_recipe.recipe.id %}" class="recipe-link" aria-label="View Recipe Details"></a>
-                        <div class="yellow-card d-flex flex-column justify-content-center">
-                            <h2>{{ favorite_recipe.recipe.title }}</h2>
-                            <p class="text-center small">By {{ favorite_recipe.recipe.author }} &nbsp; | &nbsp; 
-                                <i class="fa-regular fa-clock"></i>  {{ favorite_recipe.recipe.baking_time }} min
-                            </p>
-                        </div>
-                    </a>
                 </div>
-            </div>
             {% endfor %}
-
-            <!-- Pagination Navigation -->    
-            {% if is_paginated %}
+        </div>
+        
+        <!-- Pagination Navigation -->    
+        {% if is_paginated %}
             <nav aria-label="Page navigation">
                 <ul class="pagination justify-content-center">
                     {% if page_obj.has_previous %}
-                    <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link"><i class="fas fa-chevron-left"></i></a></li>
+                        <li><a href="?page={{ page_obj.previous_page_number }}" class="page-link"><i class="fas fa-chevron-left"></i></a></li>
                     {% endif %}
                     {% if page_obj.has_next %}
-                    <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"><i class="fas fa-chevron-right"></i></a></li>
+                        <li><a href="?page={{ page_obj.next_page_number }}" class="page-link"><i class="fas fa-chevron-right"></i></a></li>
                     {% endif %}
                 </ul>
-        
             </nav>
-        </div>
         {% endif %}
+    <!-- Display message when no favorite recipes are available -->
+    {% else %}
+        <div class="col-md-12 text-center">
+            <h2>No favorite recipes yet?</h2>
+            <p>Mark your favorite recipes using the heart icon <span class="material-symbols-outlined">favorite</span></p>
+        </div>
     </div>
+{% endif %}
+</div>
 {% endblock %}
