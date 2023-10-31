@@ -28,8 +28,10 @@ class RecipeList(ListView):
         context = super().get_context_data(**kwargs)
         if self.request.user.is_authenticated:
             user = self.request.user
-            favorite_recipes = FavoriteRecipe.objects.filter(user=user, recipe__in=context['recipe_list'])
-            favorite_recipe_ids = [favorite.recipe.id for favorite in favorite_recipes]
+            favorite_recipes = FavoriteRecipe.objects.filter(
+                user=user, recipe__in=context['recipe_list'])
+            favorite_recipe_ids = [
+                favorite.recipe.id for favorite in favorite_recipes]
             context['favorite_recipe_ids'] = favorite_recipe_ids
         return context
 
@@ -179,7 +181,8 @@ class FavoriteRecipesList(LoginRequiredMixin, ListView):
         context = super().get_context_data(**kwargs)
         if self.request.user.is_authenticated:
             user = self.request.user
-            favorite_recipe_ids = FavoriteRecipe.objects.filter(user=user).values_list('recipe_id', flat=True)
+            favorite_recipe_ids = FavoriteRecipe.objects.filter(
+                user=user).values_list('recipe_id', flat=True)
             context['favorite_recipe_ids'] = favorite_recipe_ids
         return context
 
