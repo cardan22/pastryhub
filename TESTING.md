@@ -2,11 +2,41 @@
 
 :arrow_left: [Return to the README](README.md)
 
+## Table of Contents
+
+- [Performance](#performance)
+- [Accessibility](#accessibility)
+- [Code Validation](#code-validation)
+  - [HTML Validation](#html-validation)
+  - [CSS Validation](#css-validation)
+  - [JS Validation](#js-validation)
+  - [Python Validation](#python-validation)
+- [Testing](#testing)
+  - [Manual Testing](#manual-testing)
+- [Browser Testing](#browser-testing)
+- [Bugs & Fixes](#bugs-and-fixes)
+
 # Performance
-Google Lighthouse
+[Google Lighthouse](https://chrome.google.com/webstore/detail/lighthouse/blipmdconlkpinefehnmjammfjpmpbjk?hl=en) was used to test the performance of the website. The website's performance received relatively lower scores, primarily due to its extensive use of images. However, the accessibility, adherence to best practices, and SEO aspects consistently received high scores.
+
+**Google Lighthouse results:**
+<details>
+<summary>Desktop</summary>
+<img src="static/docs/lighthouse-desktop-min.png" width="60%">
+</details>
+<details>
+<summary>Mobile</summary>
+<img src="static/docs/lighthouse-mv-min.png" width="60%">
+</details>
 
 # Accessibility
-Wave
+The WAVE WebAIM web accessibility evaluation tool to check if the website meets strong accessibility standards. As a result, we found some areas where the website could be made more accessible.
+
+**Wave results:**
+<details>
+<summary>Home page</summary>
+<img src="static/docs/wave-test-min.png" width="60%">
+</details>
 
 # Code validation
 
@@ -14,16 +44,49 @@ Wave
 The [W3C Markup Validation Service](https://validator.w3.org/) was used to validate the HTML of the website.
 
 **HTML Results:**
+
+The following pages have been tested, and no errors were detected on any of them. However, an informational message (info) was encountered, which does not indicate an error but provides information about the HTML structure on certain pages. The message pertains to the use of trailing slashes on void elements. It's worth noting that when I copied and pasted the code into an HTML validator, I did not encounter this issue.
+
+<details>
 <summary>Home page</summary>
+<img src="static/docs/html-home-min.png" width="60%">
+</details>
+<details>
 <summary>Recipe Detail page</summary>
+<img src="static/docs/html-recipe-detail-min.png" width="60%">
+</details>
+<details>
 <summary>Login page</summary>
+<img src="static/docs/html-login-min.png" width="60%">
+</details>
+<details>
 <summary>Sign up page</summary>
+<img src="static/docs/html-signup-min.png" width="60%">
+</details>
+<details>
 <summary>Logout page</summary>
+<img src="static/docs/html-logout-min.png" width="60%">
+</details>
+<details>
 <summary>Add recipe page</summary>
+<img src="static/docs/html-add-recipe-min.png" width="60%">
+</details>
+<details>
 <summary>Update recipe page</summary>
+<img src="static/docs/html-update-recipe-min.png" width="60%">
+</details>
+<details>
 <summary>Delete recipe page</summary>
-<summary>My recipes page</summary>
-<summary>Favorite recipes page</summary>
+<img src="static/docs/html-delete-min.png" width="60%">
+</details>
+<details>
+<summary>My recipe page</summary>
+<img src="static/docs/html-my-recipes-min.png" width="60%">
+</details>
+<details>
+<summary>Favorite recipe page</summary>
+<img src="static/docs/html-favorite-recipes-min.png" width="60%">
+</details>
 
 ## CSS Validation
 The [W3C Jigsaw CSS Validation Service](https://jigsaw.w3.org/css-validator/) was used to validate the CSS of the website.
@@ -126,6 +189,7 @@ BDD, or Behaviour Driven Development, is the process used to test user stories i
 
 - Chrome
 - Safari
+- Microsoft Edge
 
 # Bugs and Fixes
 
@@ -135,3 +199,4 @@ BDD, or Behaviour Driven Development, is the process used to test user stories i
 | Currently not showing image in the crispyform when updating the recipe.                | The issue has not been resolved yet, and the fix is pending.                     |
 | The yellow background extends across the entire space, becoming visible when viewed on mobile devices. It overlays the area above the navigation bar and below the footer.                | Move the {% block body_class %}{% endblock %} from above the navigation to inside the main container.                    |
 | Received an error 500 when trying to register a new account.               | Updated account setup by removing ACCOUNT_AUTHENTICATION_METHOD = 'username_email' ACCOUNT_EMAIL_REQUIRED = True ACCOUNT_USERNAME_REQUIRED = True ACCOUNT_USERNAME_MIN_LENGTH = 4 LOGIN_URL = '/accounts/login/' and adding LOGOUT_REDIRECT_URL = '/'.                  |
+| Recipes are not ordered correctly if posted one after the other | I updated the models to change the data type of the posted_date field from DateField to DateTimeField. This modification allows us to store both the date and time of posting for each recipe, ensuring accurate and precise ordering of recipes based on their chronological order. |

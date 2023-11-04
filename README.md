@@ -1,13 +1,38 @@
 # The Pastry Hub
 Link to the website: [The Pastry Hub](https://pastryhub-a26ff900b5cc.herokuapp.com/)
 
+## Table of Content
+
+- [The Pastry Hub](#the-pastry-hub)
+  - [Table of Content](#table-of-content)
+  - [About](#about)
+  - [Project Goals](#project-goals)
+  - [User Experience - UX](#user-experience---ux)
+    - [Strategy](#strategy)
+    - [Scope](#scope)
+    - [Structure](#structure)
+    - [Skeleton](#skeleton)
+    - [Surface](#surface)
+  - [Agile Development](#agile-development)
+  - [Existing Features](#existing-features)
+  - [Future Features](#future-features)
+  - [Technologies Used](#technologies-used)
+    - [Languages](#languages)
+    - [Python Modules \& Packages](#python-modulespackages-used)
+    - [Frameworks \& Tools](#frameworks--tools)
+  - [Testing and Validation](#testing-and-validation)
+  - [Deployment \& Development](#deployment--development)
+  - [Credits](#credits)
+    - [Media](#media)
+    - [Code](#code)
+
 ## About
 The Pastry Hub is a website where you can share your favorite pastry recipes. Each recipe tells you how to make delicious pastries. You can create an account to add, change, or remove your recipes anytime. It's a friendly place for people who enjoy baking sweet treats to connect and share their best recipes with each other.
 
-### Project goals
+## Project goals
 The goal of the project was to build a user-friendly platform where you can easily upload and share your favorite recipes. It also lets you make your own special recipe collection, so you can easily gather and organize your favorite recipes for sharing and easy access. You can create your account, and that allows you to add, change, or remove your recipes whenever you want.
 
-## UX
+## User Experience - UX
 The application was created with a focus on the Five Planes of User Experience.
 
 ### Strategy
@@ -129,7 +154,7 @@ I used Figma to design wireframes, which helped me to create a visual representa
 
 <details>
 <summary>Desktop</summary>
-<img src="static/docs/wf-my-recipes-desktop-min.png" width="60%">
+<img src="static/docs/wf-my-recipes-dektop-min.png" width="60%">
 </details>
 
 <details>
@@ -149,7 +174,7 @@ I used Figma to design wireframes, which helped me to create a visual representa
 <img src="static/docs/wf-add-recipe-mv-min.png">
 </details>
 
-4. **Sign up page**
+5. **Sign up page**
 
 <details>
 <summary>Desktop</summary>
@@ -161,7 +186,7 @@ I used Figma to design wireframes, which helped me to create a visual representa
 <img src="static/docs/wf-signup-mv-min.png">
 </details>
 
-4. **Login page**
+6. **Login page**
 
 <details>
 <summary>Desktop</summary>
@@ -233,11 +258,11 @@ The final sprint centered on testing the code and conducting final revisions. Pr
 
 - **Default navbar and header for unregistered user**
 
-<img src="static/docs/header-na-user-min.png" width="60%">
+<img src="static/docs/header-na-user-min.png">
 
 - **Navbar and header for registered user**
 
-<img src="static/docs/header-a-user-min.png" width="60%">
+<img src="static/docs/header-a-user-min.png">
 
 - **Navbar on mobile**
 
@@ -251,7 +276,7 @@ The final sprint centered on testing the code and conducting final revisions. Pr
 #### Footer section
 * The footer includes links to Instagram and Facebook, along with a copyright feature.
 
-<img src="static/docs/footer-min.png" width="60%">
+<img src="static/docs/footer-min.png">
 
 #### Account Features
 
@@ -259,17 +284,17 @@ The final sprint centered on testing the code and conducting final revisions. Pr
 * Allows User Signup
 * Fields: Username, Email, Password, Password Confirmation
 
-<img src="static/docs/signup-min.png" width="60%">
+<img src="static/docs/signup-min.png">
 
 ##### Login to an Account
 * Allows User Access to Their Information
 
-<img src="static/docs/login-min.png" width="60%">
+<img src="static/docs/login-min.png">
 
 ##### Log Out of an Account
 * Allows User to Log Out
 
-<img src="static/docs/logout-min.png" width="60%">
+<img src="static/docs/logout-min.png">
 
 ### Main Views
 
@@ -282,7 +307,7 @@ The final sprint centered on testing the code and conducting final revisions. Pr
 
 - **Desktop View Unregistered Users**
 
-<img src="static/docs/home-desktop-min.png" width="60%">
+<img src="static/docs/home-desktop-min.png">
 
 - **Mobile View Desktop for Registered Users**
 
@@ -291,7 +316,7 @@ The final sprint centered on testing the code and conducting final revisions. Pr
 #### My Recipes
 * Allows registered users to view their recipes, including drafts.
 
-<img src="static/docs/my-recipes-min.png" width="60%">
+<img src="static/docs/my-recipes-min.png">
 
 * Recipes with a 'draft' status are displayed as 'draft' recipes.
 
@@ -301,7 +326,7 @@ The final sprint centered on testing the code and conducting final revisions. Pr
 * Allows registered users to view their favorite recipes
 * When the user clicks the heart icon, the recipe is removed from the favorite recipes.
 
-<img src="static/docs/favorite-recipes-min.png" width="60%">
+<img src="static/docs/favorite-recipes-min.png">
 
 
 #### Recipe Detail View
@@ -315,11 +340,11 @@ The final sprint centered on testing the code and conducting final revisions. Pr
 
 - **View for Unregistered users without the button features**
 
-<img src="static/docs/recipe-detail-min.png" width="60%">
+<img src="static/docs/recipe-detail-min.png">
 
 - **View for registered users with edit/delete/favorite buttons**
 
-<img src="static/docs/recipe-detail-au-min.png" width="60%">
+<img src="static/docs/recipe-detail-au-min.png">
 
 ### CRUD Functionality 
 * All CRUD functionality is only available to registered users once they are logged in.
@@ -328,46 +353,62 @@ The final sprint centered on testing the code and conducting final revisions. Pr
 * User can create a Recipe
 * Form Fields: Title, Baking time, Ingredients, Instructions, Image, Status
 
-<img src="static/docs/add-recipe-min.png" width="60%">
+<img src="static/docs/add-recipe-min.png">
 
 #### Update a Recipe
 * User can update a Recipe
 * Form Prefilled with Existing Details
 
-<img src="static/docs/update-recipe-min.png" width="60%">
+<img src="static/docs/update-recipe-min.png">
 
 #### Delete a Recipe
 * User can delete a Recipe
 * Confirmation Prompt for Deletion
 
-<img src="static/docs/delete-recipe-min.png" width="60%">
+<img src="static/docs/delete-recipe-min.png">
 
 #### Success messages
 * After any user action on the website, a success message confirms the success of the CRUD (Create, Read, Update, Delete) operation, whether it's account-related or content-related. This list is not exhaustive.
 
-<img src="static/docs/message-1-min.png" width="60%">
+<img src="static/docs/message-1-min.png">
 
-<img src="static/docs/message-2-min.png" width="60%">
+<img src="static/docs/message-2-min.png">
 
-<img src="static/docs/message-3-min.png" width="60%">
+<img src="static/docs/message-3-min.png">
 
-<img src="static/docs/message-4-min.png" width="60%">
+<img src="static/docs/message-4-min.png">
 
-<img src="static/docs/message-5-min.png" width="60%">
+<img src="static/docs/message-5-min.png">
 
 #### 404 view
 * The 404 view is designed to provide a user-friendly error page in case a requested page is not found on the website.
 * This page offers a visually appealing and informative 404 error message, helping users navigate back to the site's functional pages.
 
-<img src="static/docs/404-min.png" width="60%">
+<img src="static/docs/404-min.png">
+
+## Future Features
+**Comment Section**
+
+To foster a sense of community and interaction, a comment section will be introduced for each recipe. Users will have the ability to leave comments, ask questions, and share their experiences related to the recipes. This feature aims to enhance engagement, sharing, and learning among baking enthusiasts.
+
+**Forgot Password**
+
+In the pursuit of a seamless user experience, a "Forgot Password" functionality will be implemented. Users who forget their passwords will have the option to reset them securely through a verified process. This feature will enhance accessibility and usability for all members of The Pastry Hub.
+
+**Delete Account**
+
+User empowerment is a core principle at The Pastry Hub. Therefore, a "Delete Account" option will be offered, allowing users to have control over their accounts. This feature will enable individuals to remove their profiles and associated data at any time, providing a flexible and secure user experience.
 
 ## Technologies Used
+
+### Languages
+
 * [HTML](https://en.wikipedia.org/wiki/HTML)
 * [CSS](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
 * [JavaScript](https://en.wikipedia.org/wiki/Javascript)
 * [Python](https://en.wikipedia.org/wiki/Python_%28programming_language%29)
 
-## Python Modules/Packages used:
+### Python Modules/Packages used
 
 * **Django:** A high-level Python web framework that served as the foundation for building this application/site.
 * ***Psycopg2:**  This package acts as a PostgreSQL database adapter for Python, enabling seamless interaction with the database.
@@ -377,7 +418,7 @@ The final sprint centered on testing the code and conducting final revisions. Pr
 * **crispy-bootstrap5:** It's a template pack for django-crispy-forms that is tailored for use with Bootstrap 5, further improving the presentation of forms."
 * **richtextfield:** This package was integrated to provide a rich text editor, enabling users to create and edit content with ease.
 
-## Frameworks & Tools
+### Frameworks & Tools
 * **Django:** Utilized for building the website's backend logic and user model.
 * **Gitpod:** Used for writing, developing, committing, and pushing code to the GitHub repository.
 * **Heroku:** Employed for deploying the live version of the website.
@@ -389,10 +430,10 @@ The final sprint centered on testing the code and conducting final revisions. Pr
 * **Google Fonts & Icons:** Imported custom fonts and integrated some icons into the website's design and functionality.
 * **Font Awesome:** Utilized for adding icon features to the site.
 
-## Testing
+## Testing and Validation
 The testing documentation can be found at [TESTING.md](TESTING.md)
 
-## Development and Deployment
+## Deployment & Development
 
 ### Deploy on Heroku
 
@@ -403,7 +444,7 @@ The testing documentation can be found at [TESTING.md](TESTING.md)
 Before you start, you need two essential files: `requirements.txt` and `Procfile`.
 
 - Create `requirements.txt` by running this command in your terminal: `pip3 freeze --local > requirements.txt`. This file will list all the requirements.
-- Next, create a file named `Procfile` and add the line: `web: gunicorn worldtravels.wsgi` to it, without any empty lines. Make sure to push both these files to your repository.
+- Next, create a file named `Procfile` and add the line: `web: gunicorn pastryhub.wsgi` to it, without any empty lines. Make sure to push both these files to your repository.
 
 **Step 2: Creating a Heroku App**
 
@@ -475,10 +516,12 @@ Ensure that the environment variables are correctly imported into the `settings.
 - Don't forget to install all the required packages listed in the requirements.txt file using the command: pip install -r requirements.txt. This command will install them for you.
 
 ## Credits
+### Media
 * All the images uploaded by the developer for her recipes belong to the developer. Furthermore, it's important to acknowledge and give credit to the following contributors for the images used on the main site of this project:
 
 **Images:**
 * Hero image: [Unsplash - Person Holding Icing Pack](https://unsplash.com/photos/person-holding-icing-pack-f4259usPV14) (Image taken from Unsplash)
+* The top mockup in the README was generated using [ami.responsivedesign.is](http://ami.responsivedesign.is/).
 
 ### Code
 I drew resources and inspiration from a few different places:
@@ -494,8 +537,4 @@ I drew resources and inspiration from a few different places:
  - [Bootsrap](https://getbootstrap.com/)
 
 
-
-### Media
-* The top mockup in the README was generated using [ami.responsivedesign.is](http://ami.responsivedesign.is/).
-
-[Back to top](#ThePastryHub)
+[Back to top](#the-pastry-hub)
