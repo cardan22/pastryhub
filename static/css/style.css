@@ -238,7 +238,7 @@ h1, h2, h3, h4 {
  }
 
  .recipe-container {
-    max-width: 70%;
+    max-width: 850px;
  }
 
  /* My recipe view */
@@ -319,6 +319,10 @@ h1, h2, h3, h4 {
     .logo-img {
         width: 150px;
     }
+
+    .recipe-container {
+        max-width: 70%;
+     }
 
     .recipe-card {
         margin: 1rem;
