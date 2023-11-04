@@ -23,7 +23,7 @@ class Recipe(models.Model):
     image = CloudinaryField("image", default="placeholder", null=False)
     image_alt = models.CharField(max_length=100, null=False, blank=False)
     status = models.IntegerField(choices=STATUS, default=0)
-    posted_date = models.DateField(auto_now_add=True)
+    posted_date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         ordering = ["-posted_date"]
