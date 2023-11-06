@@ -13,6 +13,7 @@
   - [Python Validation](#python-validation)
 - [Testing](#testing)
   - [Manual Testing](#manual-testing)
+  - [Automated Testing](#automated-testing)
 - [Browser Testing](#browser-testing)
 - [Bugs & Fixes](#bugs-and-fixes)
 
@@ -30,7 +31,7 @@
 </details>
 
 # Accessibility
-The WAVE WebAIM web accessibility evaluation tool to check if the website meets strong accessibility standards. As a result, we found some areas where the website could be made more accessible.
+[The WAVE WebAIM](https://wave.webaim.org) web accessibility evaluation tool to check if the website meets strong accessibility standards. As a result, we found some areas where the website could be made more accessible.
 
 **Wave results:**
 <details>
@@ -184,6 +185,37 @@ BDD, or Behaviour Driven Development, is the process used to test user stories i
 | 4B | As a user, I can view all my recipe entries so that I can easily see and access my own content for editing. | Any registered user can access the "My Recipes" page to view and manage all their recipe entries, providing easy access to their own content for editing. | &#x2611; |
 | 4C | As a registered user, I can see a list of all the recipes I've liked on my profile page so that I can easily access and revisit my favorite recipes. | Authenticated users can access 'Favorite recipes' to view and manage a list of recipes they've liked, providing easy access to revisit their favorite recipes. | &#x2611; |
 |4D | As a user, I want to receive feedback on my actions so that I know whether they were successful or not. | Performing any interactive action on the site, such as creating an account, logging in or out, adding, updating, deleting a recipe, or marking/unmarking a recipe as a favorite, a success message will be displayed to confirm the successful execution of the action.  | &#x2611; |
+
+# Automated Testing
+
+I used three separate files for testing: `test_models.py` to check the models, `test_views.py` to assess the views, and `test_forms.py` to review the forms.
+
+I gathered valuable insights and troubleshooting assistance from the following sources to implement automated testing:
+ - Code Institute LMS 'Hello Django' walkthrough
+ - [https://github.com/URiem/worldtravellog/blob/main/travellog/test_views.py](https://github.com/URiem/worldtravellog/blob/main/travellog/test_views.py)
+ - [https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Testing](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Testing)
+ - [https://github.com/cloudinary/pycloudinary/blob/master/django_tests/test_cloudinaryField.py](https://github.com/cloudinary/pycloudinary/blob/master/django_tests/test_cloudinaryField.py)
+ - [https://coverage.readthedocs.io/en/7.3.2/](https://coverage.readthedocs.io/en/7.3.2)
+
+**Testing results:**
+
+* **test_models.py**
+
+<img src="static/docs/test-models.png">
+
+* **test_views.py**
+
+<img src="static/docs/test-views.png">
+
+* **test_forms.py**
+
+<img src="static/docs/test-forms.png">
+
+**Testing coverage:**
+
+A coverage report was generated to assess the code test coverage percentage:
+
+<img src="static/docs/coverage-report.png">
 
 # Browser Testing
 
