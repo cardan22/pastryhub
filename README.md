@@ -1,6 +1,8 @@
 # The Pastry Hub
 Link to the website: [The Pastry Hub](https://pastryhub-a26ff900b5cc.herokuapp.com/)
 
+<img src="static/docs/thepastryhub-mockup-min.png">
+
 ## Table of Content
 
 - [The Pastry Hub](#the-pastry-hub)
@@ -14,6 +16,7 @@ Link to the website: [The Pastry Hub](https://pastryhub-a26ff900b5cc.herokuapp.c
     - [Skeleton](#skeleton)
     - [Surface](#surface)
   - [Agile Development](#agile-development)
+    - [Conclusion](#conclusion)
   - [Existing Features](#existing-features)
   - [Future Features](#future-features)
   - [Technologies Used](#technologies-used)
@@ -50,6 +53,7 @@ The application was created with a focus on the Five Planes of User Experience.
 | 2A | As a new user, I can register for an account so that I can access the website's features. |
 | 2B | As a registered user, I can log into my account so that I can access my account information. |
 | 2C | As a logged-in user, I can log out of my account with ease so that I can protect my account information. | 
+| 2D | As a user, I can reset my password so that I can regain access to my account if I forget it. | 
 
 **EPIC: Managing recipes**
 | ID | User Story |
@@ -57,6 +61,7 @@ The application was created with a focus on the Five Planes of User Experience.
 | 3A | As a site user, I can add a recipe so that I can share it on the site. | 
 | 3B | As a site user, I can edit and delete my recipes so that I can make adjustments or remove recipes as necessary. |
 | 3C | As a user, I can like recipes that I enjoy, so that I can bookmark my favorite recipes. | 
+| 3D | As a site user, I can comment on recipes so that I can share my thoughts or tips with other users. |
 
 **EPIC: User views**
 | ID | User Story | 
@@ -67,7 +72,7 @@ The application was created with a focus on the Five Planes of User Experience.
 | 4D | As a user, I want to receive feedback on my actions so that I know whether they were successful or not. |
 
 #### Target Audience
-"The Pastry Hub" is meant for people who love baking. It's a place where they can easily write down and share their best pastry recipes. Whether you're a beginner or a pro, it's for anyone who enjoys baking.
+The Pastry Hub is meant for people who love baking. It's a place where they can easily write down and share their best pastry recipes. Whether you're a beginner or a pro, it's for anyone who enjoys baking.
 
 #### User Requirements and Expectations
 * Easy-to-use website with simple navigation.
@@ -205,13 +210,15 @@ The Entity Relationship Diagram (ERD) shows how the database is organized at the
 
 ![ERD Diagram](/static/docs/drawsql-the-pastry-hub-erd.png)
 
-**User Model:** This is provided by Django and represents the user accounts on the platform.
+**User Model:** Django provides a User Model, which serves as the foundation for user accounts on the platform. Users can register and manage their profiles using this model.
 
-**Recipe Model:** This model stores the details of pastry recipes created by users. A user can have many recipes. It includes fields like title, author, baking_time, instructions, ingredients, image, image_alt, status, and posted_date.
+**Recipe Model:** The Recipe Model is the heart of the platform, allowing users to create, store, and share their pastry recipes. Each user has the flexibility to add multiple recipes, each with its own unique details. These details include the recipe's title, author, estimated baking time, step-by-step instructions, a list of ingredients, an image to visually represent the dish, image alt text for accessibility, the recipe's status (such as published or draft), and the date it was posted.
 
-**FavoriteRecipe Model:** Users can mark recipes as their favorites. This model establishes the relationship between users and their favorite recipes.
+**FavoriteRecipe Model:** Users can add their favorite recipes to the FavoriteRecipe Model. This model establishes a relationship between users and the recipes they adore. It provides a means for users to curate their personal collection of beloved recipes.
 
-**Comment Model (Future Model):** While not included in the current schema, plan to add a Comment model in the future. This model will enable users to leave comments on recipes, creating an interactive community aspect.
+ **Future Models:**
+
+In the pipeline for future development is the **Comment model**. This feature will enhance the interactive aspect of the platform by allowing users to leave comments on recipes. It will foster a sense of community among users, encouraging discussions, feedback, and shared experiences related to the culinary delights created and enjoyed by the community.
 
 #### Colours
 I wanted the page to have an inviting and playful feel that reflects the deliciousness of the recipes. However, I didn't want the colors to be too overpowering, considering the page contains numerous images of various pastries.
@@ -231,20 +238,35 @@ The development of this project was managed through GitHub issues, milestones, a
 [Link to The Pastry Hub User Stories](https://github.com/users/cardan22/projects/4)
 
 ### Sprints
+The project adopted an Agile development approach, breaking down the development process into several sprints. Each sprint had a specific focus and objectives:
+
 **Sprint 1: Project Installation and Configuration (Oct 2 - Oct 3, 2023)**
+
 In the first sprint, the project commenced with the basic installation and configuration of components. This involved setting up views, templates, and connecting URLs, as well as registering models, establishing the foundational structure of the project.
 
 **Sprint 2: Interface Design and User Story Templates (Oct 6 - Oct 10, 2023)**
+
 The second sprint focused on designing the interface for the website, with a specific emphasis on login, logout, and registration pages. User management systems were integrated, enhancing the user experience.
 
 **Sprint 3: Recipe-Related Functionality and User Interface (Oct 13 - Oct 17, 2023)**
+
 Sprint 3 included the implementation of critical recipe-related functionality, such as the ability to delete and update recipes. A new model for favorite recipes was added, and a new template to display detailed recipe information was created.
 
 **Sprint 4: UI Enhancements, User Experience, and Style Improvements (Oct 20 - Oct 30, 2023)**
+
 In the fourth sprint, work was focused on improving the user interface and overall user experience. This included creating an appealing hero section with content and making minor adjustments to enhance usability.
 
 **Sprint 5: Testing, Final Code Revisions, and Documentation (Oct 30 - Nov 6, 2023)**
+
 The final sprint centered on testing the code and conducting final revisions. Project documentation was completed, and the last refinements were made to ensure the project's quality and completeness.
+
+## Conclusion
+
+The Pastry Hub is a web application that I designed for pastry enthusiasts to share their favorite recipes and connect with like-minded bakers. I am delighted to share that it successfully achieved its goals, offering user-friendly features like registration and recipe management.
+
+Agile development was the cornerstone of this project's success. Breaking down tasks into sprints allowed for a structured and organized workflow. The iterative nature of Agile enabled continuous improvement based on user feedback and evolving requirements, resulting in a more user-friendly application.
+
+Looking forward, I aim to enhance user engagement with features like a comment section, password reset, and account deletion. The Pastry Hub is a community that invites all baking enthusiasts to come together, celebrate their passion, and share delightful recipes.
 
 ## Features
 
@@ -327,7 +349,6 @@ The final sprint centered on testing the code and conducting final revisions. Pr
 * When the user clicks the heart icon, the recipe is removed from the favorite recipes.
 
 <img src="static/docs/favorite-recipes-min.png">
-
 
 #### Recipe Detail View
 * The Recipe Detail view allows both registered and unregistered users to view recipe details by clicking on the recipe card.
@@ -515,7 +536,10 @@ Ensure that the environment variables are correctly imported into the `settings.
 - Press Enter to create your local clone.
 - Don't forget to install all the required packages listed in the requirements.txt file using the command: pip install -r requirements.txt. This command will install them for you.
 
+Link to: [The Pastry Hub Repository](https://github.com/cardan22/thepastryhub)
+
 ## Credits
+
 ### Media
 * All the images uploaded by the developer for her recipes belong to the developer. Furthermore, it's important to acknowledge and give credit to the following contributors for the images used on the main site of this project:
 
@@ -525,16 +549,16 @@ Ensure that the environment variables are correctly imported into the `settings.
 
 ### Code
 I drew resources and inspiration from a few different places:
-* To kickstart the coding process, I referred to the Code Institute's 'I Think Therefore I Blog' Django walkthrough project.
-* I found useful insights from [Django Recipe Sharing Tutorial - Dee Mc](https://www.youtube.com/watch?v=sBjbty691eI&list=PLXuTq6OsqZjbCSfiLNb2f1FOs8viArjWy&index=1)
-* Numerous past projects served as valuable resources and a source of inspiration for the developer:
- - [Freefido_v2](https://github.com/amylour/FreeFido_v2) by Amy Richardson
- - [Worldtravellog](https://github.com/URiem/worldtravellog) by Ulrike Riemenschneider
- - [theRecipeCollective](https://github.com/SandraBergstrom/theRecipeCollective) by Sandra Bergström 
-* During the project, I frequently visited the following websites for troubleshooting and assistance:
- - [Stack Overflow](https://stackoverflow.com/)
- - [W3 Schools](https://www.w3schools.com/)
- - [Bootsrap](https://getbootstrap.com/)
+- To kickstart the coding process, I referred to the Code Institute's 'I Think Therefore I Blog' Django walkthrough project.
+- I found useful insights from [Django Recipe Sharing Tutorial - Dee Mc](https://www.youtube.com/watch?v=sBjbty691eI&list=PLXuTq6OsqZjbCSfiLNb2f1FOs8viArjWy&index=1)
+- Numerous past projects served as valuable resources and a source of inspiration for the developer:
+  - [Freefido_v2](https://github.com/amylour/FreeFido_v2) by Amy Richardson
+  - [Worldtravellog](https://github.com/URiem/worldtravellog) by Ulrike Riemenschneider
+  - [theRecipeCollective](https://github.com/SandraBergstrom/theRecipeCollective) by Sandra Bergström 
+- During the project, I frequently visited the following websites for troubleshooting and assistance:
+  - [Stack Overflow](https://stackoverflow.com/)
+  - [W3 Schools](https://www.w3schools.com/)
+  - [Bootstrap](https://getbootstrap.com/)
 
 
 [Back to top](#the-pastry-hub)
