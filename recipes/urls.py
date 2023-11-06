@@ -11,7 +11,7 @@ urlpatterns = [
         ),
     path("delete/<slug:pk>", views.DeleteRecipe.as_view(), name="delete"),
     path(
-        "add-favorit-recipe/<int:id>", views.AddFavoriteRecipe.as_view(),
+        "add-favorite-recipe/<int:id>", views.AddFavoriteRecipe.as_view(),
         name="add_favorite_recipe"),
     path(
         "favorite-recipes", views.FavoriteRecipesList.as_view(),

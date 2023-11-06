@@ -14,7 +14,7 @@
       {% csrf_token %}
       <!-- Render form media and form content using the Crispy Forms template tag -->
       {{ form.media }} 
-      {{ form | crispy | safe}}
+      {{ form | crispy | safe }}
       <!-- Buttons for Update and Cancel Actions -->
       <div class="d-flex justify-content-center">
          <button type="submit" class="btn btn-primary col-6 col-md-3 me-1 p-2 my-4">
