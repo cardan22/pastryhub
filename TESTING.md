@@ -31,7 +31,7 @@
 </details>
 
 # Accessibility
-[The WAVE WebAIM](https://wave.webaim.org) web accessibility evaluation tool to check if the website meets strong accessibility standards. As a result, we found some areas where the website could be made more accessible.
+[The WAVE WebAIM](https://wave.webaim.org) web accessibility evaluation tool to check if the website meets strong accessibility standards. As a result, I've identified several areas where I can work on improving the website's accessibility. Specifically, there are some contrast errors related to buttons that need enhancements to improve color contrast. Additionally, there are issues related to alerts, where links lead to the same page on the recipe cards. These areas need my attention to make the website more user-friendly and accessible, ensuring a better experience for all visitors.
 
 **Wave results:**
 <details>
