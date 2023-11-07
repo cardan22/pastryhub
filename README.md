@@ -30,10 +30,14 @@ Link to the website: [The Pastry Hub](https://pastryhub-a26ff900b5cc.herokuapp.c
     - [Code](#code)
 
 ## About
-The Pastry Hub is a website where you can share your favorite pastry recipes. Each recipe tells you how to make delicious pastries. You can create an account to add, change, or remove your recipes anytime. It's a friendly place for people who enjoy baking sweet treats to connect and share their best recipes with each other.
+The Pastry Hub is a website dedicated to the delightful world of pastries. Here, you can freely share your most beloved pastry recipes, each offering a step-by-step guide to crafting delectable sweet treats. Creating an account grants you the freedom to add, modify, or delete your recipes at your convenience.
+
+The platform is designed with a warm and inviting atmosphere, bringing together individuals who share a passion for baking and savoring sweet delicacies. It's a friendly community where like-minded baking enthusiasts can connect and exchange their finest pastry recipes, making it a perfect destination for all lovers of the culinary arts. Join us to explore the joy of creating and indulging in delightful pastries!
 
 ## Project goals
-The goal of the project was to build a user-friendly platform where you can easily upload and share your favorite recipes. It also lets you make your own special recipe collection, so you can easily gather and organize your favorite recipes for sharing and easy access. You can create your account, and that allows you to add, change, or remove your recipes whenever you want.
+The project's main goal was to create a user-friendly platform for effortlessly uploading and sharing your favorite recipes. It also allowed users to build their own special recipe collections, making it simple to gather and organize their preferred recipes for sharing and quick access. By creating an account, users gained the ability to add, modify, or delete their recipes whenever they wished.
+
+In summary, this project aimed to be a welcoming space for culinary enthusiasts to not only share their passion for food but also to curate their collection of cherished recipes. With a strong emphasis on user-friendliness and personalization, the platform strived to nurture a lively community of food lovers who could easily connect, exchange ideas, and explore a world of delightful flavors.
 
 ## User Experience - UX
 The application was created with a focus on the Five Planes of User Experience.
@@ -534,7 +538,7 @@ Ensure that the environment variables are correctly imported into the `settings.
 - Change the current working directory to where you want the cloned directory.
 - Type `git clone` in the CLI and then paste the URL you copied. It should look like this: `$ git clone https://github.com/yourusername/yourrepository`
 - Press Enter to create your local clone.
-- Don't forget to install all the required packages listed in the requirements.txt file using the command: pip install -r requirements.txt. This command will install them for you.
+- Don't forget to install all the required packages listed in the requirements.txt file using the command: `pip install -r requirements.txt`. This command will install them for you.
 
 **Link to:** [The Pastry Hub Repository](https://github.com/cardan22/thepastryhub)
 
