@@ -96,7 +96,7 @@ The Pastry Hub is meant for people who love baking. It's a place where they can 
 
 #### Core Website Functions:
 * Build the essential features that let users interact with the site.
-* Set up registration, login, and log-out features to access the core functions.
+* Set up registration, login, and logout features to access the core functions.
 * Create a form for adding new content to the site.
 * Develop features that allow users to edit and delete their content.
 
@@ -106,14 +106,14 @@ The Pastry Hub is meant for people who love baking. It's a place where they can 
 ### Structure
 
 #### Current/Initial Structure
-* **Home page:** Both users who haven't registered and those who have registered can view the content on the homepage, which includes a list of recipes to explore. Unregistered users will encounter a button prompting them to sign up, while registered users won't see the button.
+* **Home page:** Both users who haven't registered and those who have registered can view the content on the homepage, which includes a list of recipes to explore. Unregistered users will encounter a button prompting them to login to add a recipe, while registered users will see the button to add recipe.
 * **Register page:** The Register Page enables users to make an account so they can use the main features of the website.
 * **Login/Logout page:** Users can log in to their accounts to access all site features. The logout option is available here as well.
 * **Recipe detail page:** The Recipe Detail Page enables users to see all the specifics of a pastry recipe. If a user is logged in and it's their own recipe, they'll find buttons to edit or delete it.
-* **Add recipe page:** This page allows users to submit their own pastry recipes, complete with ingredients, instructions, and images.
+* **Add recipe page:** This page allows users to submit their own pastry recipes, complete with a title, baking time, ingredients, instructions, an image, and a status of either 'draft' or 'published'
 * **Update recipe:** Users can edit or make changes to their existing pastry recipes on this page.
 * **Delete recipe:** This feature enables users to delete their pastry recipes from the platform. Users will be prompted with a confirmation message on this page to ensure they are certain about removing the recipe.
-* **User’s recipe page:** Users can view a collection of all their submitted pastry recipes, organized neatly for easy access.
+* **User’s recipe page:** Users can view a collection of all their submitted pastry recipes, neatly organized for easy access. They can also see a 'draft' tag on recipes that have not been published yet.
 * **Favorite recipe page:** Users can access recipes they have marked as favorites, organized neatly for easy access.
 
 ### Skeleton
@@ -256,7 +256,7 @@ Sprint 3 included the implementation of critical recipe-related functionality, s
 
 In the fourth sprint, work was focused on improving the user interface and overall user experience. This included creating an appealing hero section with content and making minor adjustments to enhance usability.
 
-**Sprint 5: Testing, Final Code Revisions, and Documentation (Oct 30 - Nov 6, 2023)**
+**Sprint 5: Testing, Final Code Revisions, and Documentation (Oct 30 - Nov 7, 2023)**
 
 The final sprint centered on testing the code and conducting final revisions. Project documentation was completed, and the last refinements were made to ensure the project's quality and completeness.
 
@@ -372,7 +372,7 @@ Looking forward, I aim to enhance user engagement with features like a comment s
 
 #### Create a Recipe
 * User can create a Recipe
-* Form Fields: Title, Baking time, Ingredients, Instructions, Image, Status
+* Form Fields: Title, Baking time, Ingredients, Instructions, Image, Image alt, Status
 
 <img src="static/docs/add-recipe-min.png">
 
@@ -393,9 +393,9 @@ Looking forward, I aim to enhance user engagement with features like a comment s
 
 <img src="static/docs/message-1-min.png">
 
-<img src="static/docs/message-2-min.png">
-
 <img src="static/docs/message-3-min.png">
+
+<img src="static/docs/message-2-min.png">
 
 <img src="static/docs/message-4-min.png">
 
@@ -436,7 +436,7 @@ User empowerment is a core principle at The Pastry Hub. Therefore, a "Delete Acc
 * **dj3-cloudinary-storage:** This package simplifies integration with Cloudinary by implementing the Django Storage API, making it easier to work with media assets.
 * **django-allauth:** It's a comprehensive suite of Django applications that addresses various aspects of user authentication, registration, account management, and third-party (social) account authentication.
 * **django-crispy-forms:** This package enhances the rendering of Django forms, offering more control and elegance in form presentation.
-* **crispy-bootstrap5:** It's a template pack for django-crispy-forms that is tailored for use with Bootstrap 5, further improving the presentation of forms."
+* **crispy-bootstrap5:** It's a template pack for django-crispy-forms that is tailored for use with Bootstrap 5, further improving the presentation of forms.
 * **richtextfield:** This package was integrated to provide a rich text editor, enabling users to create and edit content with ease.
 
 ### Frameworks & Tools
@@ -536,7 +536,7 @@ Ensure that the environment variables are correctly imported into the `settings.
 - Press Enter to create your local clone.
 - Don't forget to install all the required packages listed in the requirements.txt file using the command: pip install -r requirements.txt. This command will install them for you.
 
-Link to: [The Pastry Hub Repository](https://github.com/cardan22/thepastryhub)
+**Link to:** [The Pastry Hub Repository](https://github.com/cardan22/thepastryhub)
 
 ## Credits
 
@@ -551,7 +551,7 @@ Link to: [The Pastry Hub Repository](https://github.com/cardan22/thepastryhub)
 I drew resources and inspiration from a few different places:
 - To kickstart the coding process, I referred to the Code Institute's 'I Think Therefore I Blog' Django walkthrough project.
 - I found useful insights from [Django Recipe Sharing Tutorial - Dee Mc](https://www.youtube.com/watch?v=sBjbty691eI&list=PLXuTq6OsqZjbCSfiLNb2f1FOs8viArjWy&index=1)
-- Numerous past projects served as valuable resources and a source of inspiration for the developer:
+- Numerous past projects served as valuable resources and a source of inspiration:
   - [Freefido_v2](https://github.com/amylour/FreeFido_v2) by Amy Richardson
   - [Worldtravellog](https://github.com/URiem/worldtravellog) by Ulrike Riemenschneider
   - [theRecipeCollective](https://github.com/SandraBergstrom/theRecipeCollective) by Sandra Bergström 
