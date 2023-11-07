@@ -228,6 +228,10 @@ h1, h2, h3, h4 {
     object-fit: cover;
  }
 
+ li::marker {
+    font-weight: bold;
+}
+
  .btn-like {
     color: #FF577A;
     font-size: 2rem;
